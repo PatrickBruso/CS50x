@@ -6,5 +6,6 @@ int main(void)
     printf("%i\n", n);
 
     //Example of a pointer
+    int *p = &n;
     printf(")
 }
