@@ -7,5 +7,5 @@ int main(void)
 
     //Example of a pointer
     int *p = &n;
-    printf(")
+    printf("%p\n", p);
 }
