@@ -14,4 +14,17 @@ int main(void)
     {
         printf("Different\n");
     }
+
+    // Let's try with strings instead of integers
+    string s = get_string("s: ");
+    string t = get_string("t: ");
+
+    if (s == t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
 }
