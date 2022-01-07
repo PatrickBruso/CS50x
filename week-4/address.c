@@ -7,8 +7,11 @@ int main(void)
 
     // Example of a pointer
     int *p = &n;
-    printf("%p\n", p);
+    printf("%p\n", p);  // Don't need to use * as that just describes what p is (same as int, char, etc.)
 
     // Don't even need the p variable
     printf("%p\n", &n);
+
+    // Can use * as a dereference operator to print an int using that int's location
+    printf("%i\n", *p);
 }
