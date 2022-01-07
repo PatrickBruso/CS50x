@@ -3,6 +3,7 @@
 
 int main(void)
 {
+    // This works to compare integers
     int i = get_int("i: ");
     int j = get_int("j: ");
 
