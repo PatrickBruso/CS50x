@@ -7,7 +7,7 @@ int main(void)
 {
     string s = get_string("s: ");
 
-    string t = s;
+    string t = s;  // Points t to the same location as s
 
     t[0] = toupper(t[0]);
 
