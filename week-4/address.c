@@ -14,4 +14,7 @@ int main(void)
 
     // Can use * as a dereference operator to print an int using that int's location
     printf("%i\n", *p);
+
+    char *s = "HI!";  // Operates the same as "string s" from cs50.h
+    printf("%s\n", s);
 }
