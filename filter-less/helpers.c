@@ -95,11 +95,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+    // Main loop
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            // Initialize variables
+            // Initialize variables to store RGB values and counter to determine averages
             float blurRed = 0;
             float blurGreen = 0;
             float blurBlue = 0;
