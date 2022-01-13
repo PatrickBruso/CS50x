@@ -55,11 +55,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < (width + 1) / 2; j++) // half width because once you've swapped the first half you're finished
         {
             RGBTRIPLE temp = image[i][j];
-            // height stays the same, only the width changes
             image[i][j] = image[height][width - j];
+            image[height][width - j] = temp;
         }
     }
     return;
