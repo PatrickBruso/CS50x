@@ -25,10 +25,13 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             RGBTRIPLE temp = image[i][j];
+
+            // Calculations for sepia colors assigned to temporary sepia pixels
             int sepiaRed = .393 * temp.rgbtRed + .769 * temp.rgbtGreen + .189 * temp.rgbtBlue;
             int sepiaGreen = .349 * temp.rgbtRed + .686 * temp.rgbtGreen + .168 * temp.rgbtBlue;
             int sepiaBlue = .272 * temp.rgbtRed + .534 * temp.rgbtGreen + .131 * temp.rgbtBlue;
 
+            // Check for max int value of 255; if greater than, set to max 255
             if (sepiaRed > 255)
             {
                 sepiaRed = 255;
@@ -42,6 +45,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
                 sepiaBlue = 255;
             }
 
+            // Assign sepia values to current pixel
             image[i][j].rgbtBlue = sepiaBlue;
             image[i][j].rgbtGreen = sepiaGreen;
             image[i][j].rgbtRed = sepiaRed;
@@ -57,14 +61,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width / 2; j++) // half width because once you've swapped the first half you're finished
         {
+            // temporary red, green, and blue pixels for swap
             int tempRed = image[i][j].rgbtRed;
             int tempGreen = image[i][j].rgbtGreen;
             int tempBlue = image[i][j].rgbtBlue;
 
+            // Assign opposite width pixels to current pixel
             image[i][j].rgbtRed = image[i][width - (j + 1)].rgbtRed;
             image[i][j].rgbtGreen = image[i][width - (j + 1)].rgbtGreen;
             image[i][j].rgbtBlue = image[i][width - (j + 1)].rgbtBlue;
 
+            // Assign temp pixels to opposite width pixels
             image[i][width - (j + 1)].rgbtRed = tempRed;
             image[i][width - (j + 1)].rgbtGreen = tempGreen;
             image[i][width - (j + 1)].rgbtBlue = tempBlue;
