@@ -29,9 +29,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             RGBTRIPLE temp = image[i][j];
 
             // Calculations for sepia colors assigned to temporary sepia pixels
-            int sepiaRed = .393 * temp.rgbtRed + .769 * temp.rgbtGreen + .189 * temp.rgbtBlue;
-            int sepiaGreen = .349 * temp.rgbtRed + .686 * temp.rgbtGreen + .168 * temp.rgbtBlue;
-            int sepiaBlue = .272 * temp.rgbtRed + .534 * temp.rgbtGreen + .131 * temp.rgbtBlue;
+            int sepiaRed = round(.393 * temp.rgbtRed + .769 * temp.rgbtGreen + .189 * temp.rgbtBlue);
+            int sepiaGreen = round(.349 * temp.rgbtRed + .686 * temp.rgbtGreen + .168 * temp.rgbtBlue);
+            int sepiaBlue = round(.272 * temp.rgbtRed + .534 * temp.rgbtGreen + .131 * temp.rgbtBlue);
 
             // Check for max int value of 255; if greater than, set to max 255
             if (sepiaRed > 255)
