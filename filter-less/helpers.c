@@ -7,7 +7,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j] # need to average the BYTEs in this array location somehow
+            image[i][j] # need to average the BYTEs in this array location somehow (read the pixel?)
         }
     }
     return;
