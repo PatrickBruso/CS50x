@@ -95,5 +95,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+    // Initialize variables
+    int blurRed = 0;
+    int blurGreen = 0;
+    int blurBlue = 0;
+    int counter = 0;
+
     return;
 }
