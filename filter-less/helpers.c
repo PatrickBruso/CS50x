@@ -95,11 +95,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    // Initialize variables
-    int blurRed = 0;
-    int blurGreen = 0;
-    int blurBlue = 0;
-    int counter = 0;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            // Initialize variables
+            float blurRed = 0;
+            float blurGreen = 0;
+            float blurBlue = 0;
+            int counter = 0;
+        }
+    }
 
     return;
 }
