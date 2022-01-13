@@ -105,6 +105,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             float blurGreen = 0;
             float blurBlue = 0;
             int counter = 0;
+
+            // Loop to grab pixels from 3x3 blur area
+            for (int x = (i - 1); x <= (i + 1); x++)
+            {
+                for (int y = (j - 1); y <= (j + 1); y++)
+                {
+                    blurRed += copy[x][y].rgbtRed;
+                    blurGreen += copy[x][y].rgbtGreen;
+                    blurBlue += copy[x][y].rgbtBlue;
+                    counter++;
+                }
+            }
         }
     }
 
