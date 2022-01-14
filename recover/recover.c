@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 const int BUFFER_SIZE = 512; // set block size to 512 bytes for efficiency in reading
+typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    char buffer[BUFFER_SIZE]; // create an array of 512 bytes to read from raw file
+    BYTE buffer[BUFFER_SIZE]; // create an array of 512 bytes to read from raw file
     int file_index = 0; // set file index for naming JPEGs found
     char jpeg_file[8]; // array for JPEG files recovered
 
