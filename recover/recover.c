@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
+    const int BUFFER_SIZE = 512; // set block size to 512 bytes for efficiency in reading
+    uint8_t buffer[BUFFER_SIZE];
 
     // Close files
     fclose(input);
