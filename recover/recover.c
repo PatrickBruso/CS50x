@@ -34,15 +34,15 @@ int main(int argc, char *argv[])
         if ((buffer[0] == 0xff) && (buffer[1] == 0xd8) && (buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0)) // Last conditional uses bitwise operator to check if first four bytes are "1110"
         {
             sprintf(jpeg_file, "%03i.jpg", file_index); // use sprintf function to print formatted string to memory using the file_index number (to three places).
-            if (file_index == 0)
+            if (file_index == 0) // check for first JPEG file
             {
                 output = fopen(jpeg_file, "w"); // open file we just created
                 fwrite(&buffer, 1, BUFFER_SIZE, output); // write to file
             }
-            else
+            else // once we've written first JPEG file
             {
-                fclose(output);
-                output = fopen(jpeg_file, "w");
+                fclose(output); // close previously opened jpeg file
+                output = fopen(jpeg_file, "w"); // open new file
                 fwrite(&buffer, 1, BUFFER_SIZE, output); // write to file
             }
 
