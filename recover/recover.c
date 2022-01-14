@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     BYTE buffer[BUFFER_SIZE]; // create an array of 512 bytes to read from raw file
     int file_index = 0; // set file index for naming JPEGs found
     char jpeg_file[9]; // array for JPEG files recovered
-    FILE* output = NULL;
+    FILE* output = NULL; // create output file to use
 
     // Read 512 bytes from input file
     while (fread(&buffer, 1, BUFFER_SIZE, input) == BUFFER_SIZE)
@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
         // Check if new header or continue reading
         else if(output != NULL)
         {
-            output = fopen(jpeg_file, "a");
             fwrite(&buffer, BUFFER_SIZE, 1, output);
         }
     }
