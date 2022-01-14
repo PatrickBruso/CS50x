@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
     // Check command-line arguments
-    if (argc != 1)
+    if (argc != 2)
     {
         printf("Usage: ./recover IMAGE\n");
         return 1;
