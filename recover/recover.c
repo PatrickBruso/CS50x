@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     char jpeg_file[8]; // array for JPEG files recovered
 
     // Read 512 bytes from input file
-    while (fread(&buffer, sizeof(uint8_t), BUFFER_SIZE, input) == BUFFER_SIZE)
+    while (fread(&buffer, BUFFER_SIZE, sizeof(uint8_t), input) == BUFFER_SIZE)
     {
         // Check first four bytes from raw file to see if they match JPEG "signature"
         if ((buffer[0] == 0xff) && (buffer[1] == 0xd8) && (buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0)) // Last conditional uses bitwise operator to check if first four bytes are "1110"
