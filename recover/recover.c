@@ -30,6 +30,9 @@ int main(int argc, char *argv[])
         if ((buffer[0] == 0xff) && (buffer[1] == 0xd8) && (buffer[2] == 0xff) && ((buffer[3] & 0xf0) == 0xe0)) // Last conditional uses bitwise operator to check if first four bytes are "1110"
         {
             sprintf(jpeg_file, "%03i.jpg", file_index); // use sprintf function to print formatted string to memory using the file_index number (to three places).
+            FILE *output = fopen(jpeg_file, "w");
+            file_index++;
+            fwrite(&buffer, )
         }
     }
 
