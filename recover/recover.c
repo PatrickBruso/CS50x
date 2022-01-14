@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
             file_index++; // increase the index by 1 for next file name
         }
         // Check if new header or continue reading after a JPEG has been created
-        else if (output != NULL)
+        else if (output != NULL) // make sure file is opened to continue writing
         {
             fwrite(&buffer, BUFFER_SIZE, 1, output);
         }
