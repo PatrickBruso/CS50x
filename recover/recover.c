@@ -9,4 +9,12 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE\n");
         return 1;
     }
+
+    // Open file and and inform user if cannot be opened
+    FILE *input = fopen(argv[1], "r");
+    if (input == NULL)
+    {
+        printf("Could not open file.\n");
+        return 1;
+    }
 }
