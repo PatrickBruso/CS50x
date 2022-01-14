@@ -46,17 +46,15 @@ int main(int argc, char *argv[])
             }
 
             file_index++; // increase the index by 1 for next file name
-
-
-            // Check if new header or continue reading
-            if ((buffer[0] != 0xff) && (buffer[1] != 0xd8) && (buffer[2] != 0xff) && ((buffer[3] & 0xf0) != 0xe0))
-            {
-                fwrite(&buffer, BUFFER_SIZE, 1, output);
-            }
-            fclose(output);
+        }
+        // Check if new header or continue reading
+        else if((buffer[0] != 0xff) && (buffer[1] != 0xd8) && (buffer[2] != 0xff) && ((buffer[3] & 0xf0) != 0xe0))
+        {
+            fwrite(&buffer, BUFFER_SIZE, 1, output);
         }
     }
 
     // Close files
     fclose(input);
+    fclose(output);
 }
