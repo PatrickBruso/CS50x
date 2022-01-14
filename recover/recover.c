@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
     BYTE buffer[BUFFER_SIZE]; // create an array of 512 bytes to read from raw file
     int file_index = 0; // set file index for naming JPEGs found
     char jpeg_file[9]; // array for JPEG files recovered
+    FILE* output = NULL;
 
     // Read 512 bytes from input file
     while (fread(&buffer, 1, BUFFER_SIZE, input) == BUFFER_SIZE)
@@ -35,25 +36,27 @@ int main(int argc, char *argv[])
             sprintf(jpeg_file, "%03i.jpg", file_index); // use sprintf function to print formatted string to memory using the file_index number (to three places).
             if (file_index == 0)
             {
-                FILE *output = fopen(jpeg_file, "w"); // open file we just created
+                output = fopen(jpeg_file, "w"); // open file we just created
                 fwrite(&buffer, 1, BUFFER_SIZE, output); // write to file
             }
             else
             {
                 fclose(output);
-                FILE *output = fopen(jpeg_file, "w");
+                output = fopen(jpeg_file, "w");
                 fwrite(&buffer, 1, BUFFER_SIZE, output); // write to file
             }
 
             file_index++; // increase the index by 1 for next file name
         }
         // Check if new header or continue reading
-        else if((buffer[0] != 0xff) && (buffer[1] != 0xd8) && (buffer[2] != 0xff) && ((buffer[3] & 0xf0) != 0xe0))
+        else if(output != NULL)
         {
+            output = fopen(jpeg_file, "a");
             fwrite(&buffer, BUFFER_SIZE, 1, output);
         }
     }
 
     // Close files
     fclose(input);
+    fclose(output);
 }
