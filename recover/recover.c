@@ -38,13 +38,13 @@ int main(int argc, char *argv[])
             fwrite(&buffer, 1, BUFFER_SIZE, output);
 
             // Check if new header or continue reading
-            fread(&buffer, 1, BUFFER_SIZE, input);
-            while ((buffer[0] != 0xff) && (buffer[1] != 0xd8) && (buffer[2] != 0xff) && ((buffer[3] & 0xf0) != 0xe0))
-            {
-                fwrite(&buffer, BUFFER_SIZE, 1, output);
-            }
+        }
+        else if ((buffer[0] != 0xff) && (buffer[1] != 0xd8) && (buffer[2] != 0xff) && ((buffer[3] & 0xf0) != 0xe0))
+        {
+            fwrite(&buffer, BUFFER_SIZE, 1, output);
+        }
 
-            fclose(output);
+        fclose(output);
         }
     }
 
