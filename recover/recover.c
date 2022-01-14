@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 
     const int BUFFER_SIZE = 512; // set block size to 512 bytes for efficiency in reading
     uint8_t buffer[BUFFER_SIZE]; // create an array of 512 bytes to read from raw file
+    int file_index = 0; // set file index for naming JPEGs found
 
     // Read 512 bytes from input file
     while (fread(&buffer, sizeof(uint8_t), BUFFER_SIZE, input) == BUFFER_SIZE)
