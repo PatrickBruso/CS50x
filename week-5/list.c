@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    /* old version
+    // Put memory on stack
     int list[3];
 
     list[0] = 1;
@@ -13,7 +13,15 @@ int main(void)
     {
         printf("%i\n", list[i]);
     }
-    */
 
-    int *list = malloc(3 * sizeof(int));
+    // Put memory on heap
+    int *list2 = malloc(3 * sizeof(int));
+    if (list2 == NULL)
+    {
+        return 1;
+    }
+
+    list2[0] = 1;
+    list2[1] = 2;
+    list2[2] = 3;
 }
