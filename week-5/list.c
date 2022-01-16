@@ -27,8 +27,8 @@ int main(void)
     list2[2] = 3;
 
     // Can change size of array, unlike stack
-    list2 = malloc(4 * sizeof(int));
-    list2[3] = 4;
+    //list2 = malloc(4 * sizeof(int));
+    //list2[3] = 4;
 
     // Right way to do above (add to array)
     int *tmp = malloc(4 * sizeof(int));
@@ -44,11 +44,14 @@ int main(void)
     }
     tmp[3] = 4;
 
+    free(list2);
+
     list2 = tmp;
 
     for (int i = 0; i < 4; i++)
     {
         printf("%i\n", list2[i]);
     }
+    free(list2);
     return 0;
 }
