@@ -55,4 +55,12 @@ int main(void)
     {
         printf("%i\n", tmp->number);
     }
+
+    // Free list
+    while (list != NULL)
+    {
+        node *tmp = list->next;
+        free(list);
+        list = tmp;
+    }
 }
