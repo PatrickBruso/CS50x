@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -28,4 +29,26 @@ int main(void)
     // Can change size of array, unlike stack
     list2 = malloc(4 * sizeof(int));
     list2[3] = 4;
+
+    // Right way to do above (add to array)
+    int *tmp = malloc(4 * sizeof(int));
+    if (tmp == NULL)
+    {
+        free(list2);
+        return 1;
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        tmp[i] = list2[i];
+    }
+    tmp[3] = 4;
+
+    list2 = tmp;
+
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%i\n", list2[i]);
+    }
+    return 0;
 }
