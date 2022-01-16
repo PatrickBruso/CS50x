@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    
+    /* old version
     int list[3];
 
     list[0] = 1;
@@ -13,4 +13,7 @@ int main(void)
     {
         printf("%i\n", list[i]);
     }
+    */
+
+    int *list = malloc(3 * sizeof(int));
 }
