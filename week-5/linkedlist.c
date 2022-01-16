@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <stlib.h>
+#include <stdlib.h>
 
 // Create a data structure "node"
-typdef struct node
+typedef struct node
 {
     int number;
     struct node *next; // Pointer to next node
@@ -49,4 +49,10 @@ int main(void)
     n->number = 3;
     n->next = NULL;
     list->next->next = n;
+
+    // Print numbers
+    for (node *tmp = list; tmp != NULL; tmp = tmp->next)
+    {
+        printf("%i\n", tmp->number);
+    }
 }
