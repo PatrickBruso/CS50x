@@ -46,12 +46,12 @@ int main(void)
 
     free(list2);
 
-    list2 = tmp;
+    list2 = tmp; // set list2 pointer to tmp pointer
 
     for (int i = 0; i < 4; i++)
     {
         printf("%i\n", list2[i]);
     }
-    free(list2);
+    free(list2); 
     return 0;
 }
