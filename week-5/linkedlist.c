@@ -42,7 +42,7 @@ int main(void)
     n = malloc(sizeof(node));
     if (n == NULL)
     {
-        free(list->next);
+        free(list->next); // Free list->next first before list
         free(list);
         return 1;
     }
