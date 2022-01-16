@@ -24,4 +24,8 @@ int main(void)
     list2[0] = 1;
     list2[1] = 2;
     list2[2] = 3;
+
+    // Can change size of array, unlike stack
+    list2 = malloc(4 * sizeof(int));
+    list2[3] = 4;
 }
