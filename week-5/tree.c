@@ -33,10 +33,40 @@ int main(void)
     n = malloc(sizeof(node));
     if (n == NULL)
     {
+        // Free memory
         return 1;
     }
     n->number = 1;
     n->left = NULL;
     n->right = NULL;
     tree->left = n;
+
+    // Add number to list
+    n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        // Free memory
+        return 1;
+    }
+    n->number = 3;
+    n->left = NULL;
+    n->right = NULL;
+    tree->right = n;
+
+    // Print tree
+    print_tree(tree);
+
+    // Free tree
+    free_tree(tree);
+}
+
+void print_tree(node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    print_tree(root->left);
+    printf("%i\n", root->number);
+    print_tree(root->right);
 }
