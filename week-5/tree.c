@@ -70,3 +70,14 @@ void print_tree(node *root)
     printf("%i\n", root->number);
     print_tree(root->right);
 }
+
+void free_tree(node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    free_tree(root->left);
+    free_tree(root->right);
+    free(root);
+}
