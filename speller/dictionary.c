@@ -2,6 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <strings.h>
 
 #include "dictionary.h"
 
@@ -22,13 +23,11 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
-    int index = hash(word);
-
+    // lookup hash value in list from Kernighan & Ritchie
     node *n;
     for (n = table[hash(word)]; n != NULL; n = n->next)
     {
-        if (strcmp(s, n->name) == 0)
+        if (strcasecmp(word, n->word) == 0)
         {
             return true;
         }
