@@ -25,7 +25,14 @@ bool check(const char *word)
     // TODO
     int index = hash(word);
 
-    node *n 
+    node *n;
+    for (n = table[hash(word)]; n != NULL; n = n->next)
+    {
+        if (strcmp(s, n->name) == 0)
+        {
+            return true;
+        }
+    }
 
     return false;
 }
