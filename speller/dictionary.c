@@ -25,6 +25,8 @@ bool check(const char *word)
     // TODO
     int index = hash(word);
 
+    node *n 
+
     return false;
 }
 
