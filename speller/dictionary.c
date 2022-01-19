@@ -38,7 +38,7 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    
+    FILE *dictionary = fopen()
     return false;
 }
 
