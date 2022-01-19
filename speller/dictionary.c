@@ -38,7 +38,7 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    FILE *dictionary = fopen()
+    FILE *dictionary = fopen(dictionary, "r");  // Not sure this works for using dictionary variable as pathname
     return false;
 }
 
