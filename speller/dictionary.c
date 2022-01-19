@@ -53,15 +53,11 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    FILE *dict = fopen(dictionary, "r");  // Not sure this works for using dictionary variable as pathname
-    if (f = NULL)
+    FILE *file = fopen(dictionary, "r");
+    if (file = NULL)
     {
         return false;
     }
-
-
-    int length = 0; // Variable for length of dictionary array
-    char **words = loadfile(dictionary, &length); //set pointer array to load dictionary and determine length of file
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
