@@ -29,11 +29,11 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    unsigned hashvalue;
-    for (hashvalue = 0; *word != '\0'; s++)
+    // Improve this hash function (Thanks Doug Lloyd!)
+    int sum = 0;
+    for (int i = 0; str[i] != '\0'; i++)
     {
-        sum += str[j];
+        sum += tolower(str[j]);
     }
     return sum % N
 }
