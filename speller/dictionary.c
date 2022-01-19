@@ -30,7 +30,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    int hashvalue;
+    unsigned hashvalue;
     for (hashvalue = 0; *word != '\0'; s++)
     {
         sum += str[j];
