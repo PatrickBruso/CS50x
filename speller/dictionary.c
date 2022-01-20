@@ -18,7 +18,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 1000;  // I set this high because that's what it seemed like we needed to do
+const unsigned int N = 10000;  // I set this high because that's what it seemed like we needed to do
 
 // Hash table
 node *table[N];
@@ -118,12 +118,12 @@ bool unload(void)
         {
             node *tmp = n;
             n = n->next;
+            free(tmp->word);
             free(tmp);
         }
 
         if(n == NULL && i == N-1)
         {
-            free(n);
             return true;
         }
     }
