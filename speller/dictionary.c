@@ -67,7 +67,16 @@ bool load(const char *dictionary)
     char buffer[LENGTH + 1];
     while(fscanf(file, "%s", buffer) == 1)
     {
+        // Dynamically allocate space for new node
+        node *n = malloc(sizeof(node));
 
+        // Check for NULL pointer
+        if (n == NULL)
+        {
+            return false;
+        }
+
+        strcpy(n->buffer, buffer);
     }
 
     word_count++;
