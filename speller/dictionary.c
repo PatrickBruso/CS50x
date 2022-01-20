@@ -76,7 +76,14 @@ bool load(const char *dictionary)
             return false;
         }
 
-        strcpy(n->buffer, buffer);
+        // Copy current word into node we created
+        strcpy(n->word, buffer);
+        // Set new node's next to NULL
+        n->next = NULL;
+
+        // Hash word and insert into table
+        int index = hash(buffer);
+        n->next = table[index];
     }
 
     word_count++;
