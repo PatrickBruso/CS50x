@@ -117,9 +117,9 @@ bool unload(void)
         {
             tmp = n->next;
             free(n->next);
+            free(n);
             n = tmp;
         }
-        free(n);
     }
     return true;
 }
