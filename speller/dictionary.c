@@ -64,6 +64,9 @@ bool load(const char *dictionary)
         return false;
     }
 
+    char buffer[LENGTH + 1];
+    fscanf(file, "%s", buffer);
+
     word_count++;
 }
 
