@@ -109,7 +109,6 @@ unsigned int size(void)
 bool unload(void)
 {
     node *tmp;
-    node *tmp2;
 
     for (int i = 0; i < N; i++)
     {
@@ -121,5 +120,4 @@ bool unload(void)
         }
     }
     return true;
-    return false;
 }
