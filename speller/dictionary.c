@@ -66,7 +66,7 @@ bool load(const char *dictionary)
     }
 
     char buffer[LENGTH + 1];
-    // Load each line using fscanf
+    // Load each string using fscanf
     while(fscanf(file, "%s", buffer) == 1)
     {
         // Dynamically allocate space for new node
