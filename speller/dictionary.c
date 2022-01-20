@@ -115,9 +115,11 @@ bool unload(void)
     {
         if (table[i] != NULL)
         {
-            tmp = table[i];
-            
+            tmp = n->next;
+            free(n);
+            n = tmp;
         }
     }
+    return true;
     return false;
 }
