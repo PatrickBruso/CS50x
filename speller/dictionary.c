@@ -29,7 +29,7 @@ int word_count = 0;
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // lookup hash value in list from Kernighan & Ritchie
+    // lookup hash value in list (from Kernighan & Ritchie)
     node *n;
     for (n = table[hash(word)]; n != NULL; n = n->next)
     {
