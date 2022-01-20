@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <strings.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -84,9 +85,16 @@ bool load(const char *dictionary)
         // Hash word and insert into table
         int index = hash(buffer);
         n->next = table[index];
-    }
 
-    word_count++;
+        // Set index to current node
+        table[index] = n;
+
+        // Increase word count variable by one
+        word_count++;
+    }
+    // Close file and return true
+    fclose(file);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
