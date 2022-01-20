@@ -108,11 +108,9 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    node *n;
-
     for (int i = 0; i < N; i++)
     {
-        n = table[i];
+        node *n = table[i];
 
         while (n != NULL)
         {
@@ -121,11 +119,6 @@ bool unload(void)
             free(tmp->word);
             free(tmp);
         }
-
-        if(n == NULL && i == N-1)
-        {
-            return true;
-        }
     }
-    return false;
+    return true;
 }
