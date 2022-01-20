@@ -18,7 +18,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 10000;  // I set this high because that's what it seemed like we needed to do
+const unsigned int N = 1000;  // I set this high because that's what it seemed like we needed to do
 
 // Hash table
 node *table[N];
@@ -80,7 +80,7 @@ bool load(const char *dictionary)
         }
 
         // Copy current word into node we created
-        strcpy(n->word, buffer);
+        strcpy(n->word, tolower(buffer));
         // Set new node's next to NULL
         n->next = NULL;
 
