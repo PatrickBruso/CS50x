@@ -118,8 +118,14 @@ bool unload(void)
         {
             node *tmp = n;
             n = n->next;
+            free(n->next);
             free(tmp);
         }
+
+        if(n == NULL && i == N-1)
+        {
+            return true;
+        }
     }
-    return true;
+    return false;
 }
