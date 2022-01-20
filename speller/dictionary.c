@@ -22,6 +22,9 @@ const unsigned int N = 1000;  // I set this high because that's what it seemed l
 // Hash table
 node *table[N];
 
+// Counter for words in dictionary
+int word_count = 0;
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
@@ -61,7 +64,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    word_count = 0;
+    word_count++;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
