@@ -112,7 +112,9 @@ bool unload(void)
 
     for (int i = 0; i < N; i++)
     {
-        if (table[i] != NULL)
+        tmp = table[i];
+
+        if (tmp != NULL)
         {
             tmp = n->next;
             free(n->next);
