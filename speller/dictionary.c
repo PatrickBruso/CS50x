@@ -117,7 +117,6 @@ bool unload(void)
         {
             node *tmp = n;
             n = n->next;
-            free(tmp->word);
             free(tmp);
         }
     }
