@@ -80,7 +80,7 @@ bool load(const char *dictionary)
         }
 
         // Copy current word into node we created
-        strcpy(n->word, tolower(buffer));
+        strcpy(n->word, buffer);
         // Set new node's next to NULL
         n->next = NULL;
 
