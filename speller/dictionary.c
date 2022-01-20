@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <strings.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "dictionary.h"
 
@@ -41,11 +43,11 @@ unsigned int hash(const char *word)
 {
     // Improve this hash function (Thanks Doug Lloyd!)
     int sum = 0;
-    for (int i = 0; str[i] != '\0'; i++)
+    for (int i = 0; word[i] != '\0'; i++)
     {
-        sum += tolower(str[j]);
+        sum += tolower(word[i]);
     }
-    return sum % N
+    return sum % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -54,7 +56,7 @@ bool load(const char *dictionary)
     // TODO
     // Open dictionary file
     FILE *file = fopen(dictionary, "r");
-    if (file = NULL)
+    if (file == NULL)
     {
         return false;
     }
