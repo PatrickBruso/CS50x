@@ -75,6 +75,7 @@ bool load(const char *dictionary)
         // Check for NULL pointer
         if (n == NULL)
         {
+            fclose(file);
             return false;
         }
 
