@@ -33,7 +33,7 @@ bool check(const char *word)
     node *n;
     for (n = table[hash(word)]; n != NULL; n = n->next)
     {
-        if (strcasecmp(word, n->word) == 0)
+        if (strcasecmp(word, n->word) == 0) // Check if word is the same as node pointer to word
         {
             return true;
         }
@@ -45,7 +45,7 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // Improve this hash function (Thanks Doug Lloyd!)
+    // hash function (Thanks Doug Lloyd!)
     int sum = 0;
     for (int i = 0; word[i] != '\0'; i++)
     {
@@ -57,7 +57,6 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    // TODO
     // Open dictionary file
     FILE *file = fopen(dictionary, "r");
     if (file == NULL)
@@ -109,15 +108,17 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
+    // Go through each node in hash table
     for (int i = 0; i < N; i++)
     {
+        // set node to table index
         node *n = table[i];
 
-        while (n != NULL)
+        while (n != NULL) // quit if n is NULL (hit end of table)
         {
-            node *tmp = n;
-            n = n->next;
-            free(tmp);
+            node *tmp = n; // assign n to temp node
+            n = n->next; // assign n->next to n
+            free(tmp); // free temp node
         }
     }
     return true;
