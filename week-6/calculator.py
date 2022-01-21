@@ -1,3 +1,5 @@
-x = input("x: ")
-y = input("y: ")
+from cs50 import get_int as gi
+
+x = gi("x: ")
+y = gi("y: ")
 print(x + y)
