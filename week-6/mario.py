@@ -1,7 +1,8 @@
 from cs50 import get_int
 
 def main():
-    for i in range(n):
+    height = get_height()
+    for i in range(height):
         print("#")
 
 def get_height():
@@ -10,3 +11,5 @@ def get_height():
         if n > 0:
             break
     return n
+
+main()
