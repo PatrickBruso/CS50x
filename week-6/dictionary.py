@@ -1,9 +1,9 @@
 # Implementation of pset5 dictionary.c in Python
 
-words = dict()
+words = set()
 
 def check(word):
-    if word in words:
+    if word.lower() in words:
         return True
     else:
         return False
