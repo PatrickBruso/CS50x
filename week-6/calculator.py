@@ -7,12 +7,12 @@ print(x + y)
 # without cs50 library (and using exceptions)
 try:
     x = int(input("x: ")) # cast input string to integer
-except:
+except ValueError: # if user does not enter integer
     print("That is not an int!")
     exit()
 try:
     y = int(input("y: "))
-except:
+except ValueError:
     print("That is not an int!")
     exit()
 print(x + y)
