@@ -18,7 +18,6 @@ def main():
     # TODO: Read teams into memory from file
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
-        next(reader)
         for row in reader:
             team = row[0]
             teams.append(team)
