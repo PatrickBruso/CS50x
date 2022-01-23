@@ -7,6 +7,7 @@ def main():
     sum = 0
     for i in range(len(number) - 2, -1, -2):
         sum += (int(number[i]) * 2)
+        print(sum)
     print(sum)
 
 if __name__ == '__main__':
