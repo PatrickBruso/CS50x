@@ -18,6 +18,9 @@ def main():
                 sum += int(num)
     print(sum)
 
+def luhn_algorithm:
+
+
 
 if __name__ == '__main__':
     main()
