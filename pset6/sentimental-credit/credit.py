@@ -5,7 +5,10 @@ def main():
 
     # Apply Luhn's Algorithm to determine if valid number
     valid = luhn_algorithm(number)
-    print(valid)
+
+    # Quit if not valid
+    if valid is False:
+        print("INVALID")
 
 
 def luhn_algorithm(string):
