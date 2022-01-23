@@ -15,13 +15,14 @@ def main():
         sys.exit("Usage: python tournament.py FILENAME")
 
     teams = []
-    # TODO: Read teams into memory from file
+
+    # Open file passed through command-line argument
     with open(sys.argv[1], "r") as file:
         reader = csv.DictReader(file)
+        # Create dictionary of each team and rating and append to teams list
         for row in reader:
-            team = {row["team"]: row["rating"]]}
+            team = {row["team"]: row["rating"]}
             teams.append(team)
-    print(teams)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
