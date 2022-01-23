@@ -1,5 +1,6 @@
 from cs50 import get_string
 
+
 def main():
     number = get_string("Number: ")
 
@@ -12,12 +13,18 @@ def main():
     else:
         print("INVALID")
 
+
 def determine_card(string):
     # Check whether American Express
     if len(string) == 15:
         print("AMEX")
     # Check whether Visa
-    elif 
+    elif string[0] == '4':
+        print("VISA")
+    # Otherwise must be Mastercard
+    else:
+        print("MASTERCARD")
+
 
 def luhn_algorithm(string):
     # Initialize variables
