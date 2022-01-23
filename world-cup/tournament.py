@@ -17,7 +17,7 @@ def main():
     teams = []
 
     # Open file passed through command-line argument
-    with open(sys.argv[1], "r") as file:
+    with open(sys.argv[1]) as file:
         reader = csv.DictReader(file)
         # Create dictionary of each team and rating and append to teams list
         for row in reader:
