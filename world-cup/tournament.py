@@ -31,11 +31,12 @@ def main():
     while i < N:
         winner = simulate_tournament(teams)
         if winner not in counts:
+            # Add winner to counts dict and set value to 1
             counts[winner] = 1
         else:
+            # increment value by 1
             counts[winner] += 1
         i += 1
-
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
@@ -66,9 +67,13 @@ def simulate_round(teams):
 
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
+    # Continue loop until 1 team remains
     while len(teams) != 1:
+        # Determine winners of round
         winner = simulate_round(teams)
+        # Remove losers from teams and re-run
         teams = winner
+    # Return winning team
     return teams[0]["team"]
 
 
