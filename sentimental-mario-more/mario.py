@@ -9,5 +9,5 @@ if height < 1 or height > 8:
 # Draw pyramid
 for i in range(1, height + 1):
     print(" " * (height - i) + "#" * i, end="")
-    print("  ", end="")
+    print(" " + " ", end="")
     print("#" * i + " " * (height - i))
