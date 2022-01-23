@@ -25,8 +25,8 @@ def main():
                     "rating": int(row["rating"])}
             teams.append(team)
 
+    # Simulate N tournaments and keep track of win counts
     counts = {}
-    # TODO: Simulate N tournaments and keep track of win counts
     i = 0
     while i < N:
         winner = simulate_tournament(teams)
