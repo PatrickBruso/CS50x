@@ -7,7 +7,9 @@ def main():
     sum = []
     for i in range(len(number) - 2, -1, -2):
         sum.append((int(number[i]) * 2))
-    print(sum)
+
+    for number in sum:
+        
 
 if __name__ == '__main__':
     main()
