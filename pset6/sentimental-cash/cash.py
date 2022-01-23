@@ -15,7 +15,7 @@ while change_amount >= .10 and change_amount < .25:
 while change_amount >= .05 and change_amount < .10:
     change_amount -= .05
     coins += 1
-while change_amount >= .01 and change_amount < .05:
+while change_amount < .05 and change_amount > 0:
     change_amount -= .01
     coins += 1
 
