@@ -11,7 +11,12 @@ def main():
 
     for number in products:
         converted_num = str(number)
-        
+        if len(converted_num) == 1:
+            sum += int(number)
+        elif len(converted_num) > 1:
+            for num in converted_num:
+                sum += int(num)
+    print(sum)
 
 
 if __name__ == '__main__':
