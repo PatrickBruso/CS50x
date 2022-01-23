@@ -1,12 +1,12 @@
-from cs50 import get_int
+from cs50 import get_string
 
 def main():
-    number = get_int("Number: ")
+    number = get_string("Number: ")
 
     # Apply Luhn's Algorithm to determine if valid number
     sum = 0
-    for i in range(-2, 0, 2):
-        sum += (i * 2)
+    for i in range(len(number) - 2, -1, -2):
+        sum += (int(i) * 2)
     print(sum)
 
 if __name__ == '__main__':
