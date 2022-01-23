@@ -6,10 +6,18 @@ def main():
     # Apply Luhn's Algorithm to determine if valid number
     valid = luhn_algorithm(number)
 
-    # Quit if not valid
-    if valid is False:
+    # Call determine_card function if valid otherwise print INVALID
+    if valid is True:
+        card = determine_card(number)
+    else:
         print("INVALID")
 
+def determine_card(string):
+    # Check whether American Express
+    if len(string) == 15:
+        print("AMEX")
+    # Check whether Visa
+    elif 
 
 def luhn_algorithm(string):
     # Initialize variables
