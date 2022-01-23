@@ -21,7 +21,7 @@ def main():
         reader = csv.DictReader(file)
         # Create dictionary of each team and rating and append to teams list
         for row in reader:
-            team = {row["team"]: row["rating"]}
+            team = {row["team"]: int(row["rating"])}
             teams.append(team)
     print(teams)
 
