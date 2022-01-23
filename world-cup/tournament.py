@@ -33,7 +33,7 @@ def main():
         if winner in counts:
             counts[winner] += 1
         else:
-            counts.append[winner]
+            counts[winner] = [1]
 
 
     # Print each team's chances of winning, according to simulation
