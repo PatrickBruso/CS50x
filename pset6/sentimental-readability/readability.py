@@ -9,4 +9,10 @@ words = 1
 sentences = 0
 
 for characters in text:
-    if characters 
+    if ((characters >= 'a' and characters <= 'z') or
+        (characters >= 'A' and characters <= 'Z')):
+        letters += 1
+    if characters == '.' or characters == '?' or characters == '!':
+        sentences += 1
+    if characters == ' ':
+        words += 1
