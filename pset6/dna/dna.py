@@ -34,7 +34,10 @@ def main():
 
     # TODO: Check database for matching profiles
     for person in persons:
-        
+        for i in range(len(str_list)):
+            print(longest[i])
+            print(person[i])
+            print(person["name"])
 
     return
 
