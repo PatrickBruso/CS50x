@@ -35,10 +35,10 @@ def main():
     # TODO: Check database for matching profiles
     new_list = []
 
-    for person in persons:
+    for i in range(len(str_list)):
         for str in str_list:
-            new_list.append(person[str])
-            print(new_list)
+            new_list.append(persons[i][str])
+        print(new_list)
 
     return
 
