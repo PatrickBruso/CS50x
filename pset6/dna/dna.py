@@ -32,10 +32,9 @@ def main():
     for item in str_list:
         match = longest_match(dna_sequence, item)
         longest[item] = str(match)
-    print(longest)
 
     # TODO: Check database for matching profiles
-    new_list = []
+    print(persons[0])
     for item in str_list:
         print(persons[0][item])
 
