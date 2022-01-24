@@ -30,7 +30,8 @@ def main():
 
     # Call longest_match function for each STR
     for str in str_list:
-        longest[str] = longest_match(dna_sequence, str)
+        match = longest_match(dna_sequence, str)
+        longest[str] = str(match)
     print(longest)
 
     # TODO: Check database for matching profiles
