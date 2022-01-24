@@ -33,9 +33,12 @@ def main():
         longest.append(longest_match(dna_sequence, str))
 
     # TODO: Check database for matching profiles
+    new_list = []
+
     for person in persons:
-        new_list = list(person)
-        print(new_list)
+        print(person)
+        for str in str_list:
+            new_list.append(person[str])
     """for i in range(len(str_list)):
         if persons[i][str_list[i]] == longest[i]:
             print(person["name"])"""
