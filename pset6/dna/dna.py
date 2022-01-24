@@ -30,8 +30,8 @@ def main():
 
     # Call longest_match function for each STR
     for str in str_list:
-        result = longest_match(sys.argv[2], str)
-        longest.append(result)
+        print(str)
+        print(longest_match(sys.argv[2], str))
 
     print(longest)
 
