@@ -25,7 +25,7 @@ def main():
     str_list = list(persons[0])
     str_list.pop(0)
 
-    #Create dictionary for longest subsequences match
+    # Create dictionary for longest subsequences match
     longest = []
 
     # Call longest_match function for each STR
@@ -44,8 +44,10 @@ def main():
         if match_list == longest:
             print(person["name"])
             found = True
+        # Reset match_list to empty list for next person's values
         match_list = []
 
+    # Check if no match
     if found == False:
         print("No Match")
 
