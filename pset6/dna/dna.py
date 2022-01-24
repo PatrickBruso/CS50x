@@ -31,14 +31,15 @@ def main():
     # Call longest_match function for each STR
     for str in str_list:
         longest[str] = longest_match(dna_sequence, str)
+    print(longest)
 
     # TODO: Check database for matching profiles
     new_list = []
 
     for person in persons:
         for str in str_list:
-            print(person[str])
-            print(longest[str])
+            print(type(person[str]))
+            print(type(longest[str]))
             if person[str] == longest[str]:
                 print("found")
 
