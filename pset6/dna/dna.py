@@ -17,8 +17,8 @@ def main():
             persons.append(person)
 
     # TODO: Read DNA sequence file into a variable
-    dna_sequence = []
-    
+    with open(sys.argv[2]) as file:
+        dna_sequence = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
 
