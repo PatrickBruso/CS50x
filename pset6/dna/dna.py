@@ -26,19 +26,21 @@ def main():
     str_list.pop(0)
 
     #Create dictionary for longest subsequences match
-    longest = []
+    longest = {}
 
     # Call longest_match function for each STR
     for str in str_list:
-        longest.append(longest_match(dna_sequence, str))
+        longest[str] = longest_match(dna_sequence, str)
 
     # TODO: Check database for matching profiles
     new_list = []
 
-    for i in range(len(str_list)):
+    for person in persons:
         for str in str_list:
-            new_list.append(persons[i][str])
-        print(new_list)
+            print(person[str])
+            print(longest[str])
+            if person[str] == longest[str]:
+                print("found")
 
     return
 
