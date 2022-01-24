@@ -34,15 +34,16 @@ def main():
         longest[item] = str(match)
 
     # TODO: Check database for matching profiles
-    print(persons)
-    print(persons[0])
-    print(longest)
     for item in str_list:
         print(persons[0][item])
 
     """for person in persons:
         for item in str_list:
             if person[item] == longest[item]:"""
+
+    for person in persons:
+        match_list = list(person)
+        print(match_list)
 
     return
 
