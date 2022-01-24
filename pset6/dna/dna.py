@@ -30,8 +30,7 @@ def main():
 
     # Call longest_match function for each STR
     for str in str_list:
-        print(str)
-        print(longest_match(sys.argv[2], str))
+        print(longest_match(dna_sequence, str))
 
     print(longest)
 
