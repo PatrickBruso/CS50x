@@ -15,7 +15,6 @@ def main():
         reader = csv.DictReader(file)
         for person in reader:
             persons.append(person)
-        print(persons)
 
     # TODO: Read DNA sequence file into a variable
 
