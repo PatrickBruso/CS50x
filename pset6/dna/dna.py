@@ -36,11 +36,12 @@ def main():
 
     # TODO: Check database for matching profiles
     new_list = []
+    for item in str_list:
+        print(persons[0][item])
 
-    for person in persons:
+    """for person in persons:
         for item in str_list:
-            if person[item] == longest[item]:
-                print("found")
+            if person[item] == longest[item]:"""
 
     return
 
