@@ -22,9 +22,18 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
     # Pull STRs
-    str_list = persons[0].keys()
-    for i in range(1, len(str_list)):
-        print(str_list)
+    str_list = list(persons[0])
+    str_list.pop(0)
+
+    #Create variable for longest subsequences
+    longest = []
+
+    # Call longest_match function for each STR
+    for str in str_list:
+        result = longest_match(sys.argv[2], str)
+        longest.append(result)
+
+    print(longest)
 
     # TODO: Check database for matching profiles
 
