@@ -17,13 +17,18 @@ for characters in text:
     if characters == ' ':
         words += 1
 
+# determine varaibles for Coleman-Liau index
 l_calc = (letters / words) * 100
 s_calc = (sentences / words) * 100
 
 # Calculate grade index
 index = 0.0588 * l_calc - 0.296 * s_calc - 15.8
+index = round(index)
 
-print(index)
-
-# call round function on index and assign to integer to remove decimal places
-int grade = round(index)
+# Print grade
+if index < 1:
+    print("Before Grade 1")
+elif index > 15:
+    print("Grade 16+")
+else:
+    print(f"Grade {index}")
