@@ -35,6 +35,7 @@ def main():
 
     # TODO: Check database for matching profiles
     print(persons[0])
+    print(longest)
     for item in str_list:
         print(persons[0][item])
 
