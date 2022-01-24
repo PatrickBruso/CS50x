@@ -34,6 +34,7 @@ def main():
         longest[item] = str(match)
 
     # TODO: Check database for matching profiles
+    print(persons)
     print(persons[0])
     print(longest)
     for item in str_list:
