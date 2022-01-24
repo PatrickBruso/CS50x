@@ -30,7 +30,7 @@ def main():
 
     # Call longest_match function for each STR
     for str in str_list:
-        print(longest_match(dna_sequence, str))
+        longest.append(longest_match(dna_sequence, str))
 
     print(longest)
 
