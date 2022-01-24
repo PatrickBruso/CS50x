@@ -29,19 +29,17 @@ def main():
     longest = {}
 
     # Call longest_match function for each STR
-    for str in str_list:
-        match = longest_match(dna_sequence, str)
-        longest[str] = str(match)
+    for item in str_list:
+        match = longest_match(dna_sequence, item)
+        longest[item] = str(match)
     print(longest)
 
     # TODO: Check database for matching profiles
     new_list = []
 
     for person in persons:
-        for str in str_list:
-            print(type(person[str]))
-            print(type(longest[str]))
-            if person[str] == longest[str]:
+        for item in str_list:
+            if person[item] == longest[item]:
                 print("found")
 
     return
