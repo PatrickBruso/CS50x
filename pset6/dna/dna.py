@@ -36,12 +36,9 @@ def main():
     new_list = []
 
     for person in persons:
-        print(person)
         for str in str_list:
             new_list.append(person[str])
-    """for i in range(len(str_list)):
-        if persons[i][str_list[i]] == longest[i]:
-            print(person["name"])"""
+            print(new_list)
 
     return
 
