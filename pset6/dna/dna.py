@@ -32,23 +32,22 @@ def main():
     for item in str_list:
         longest.append(str(longest_match(dna_sequence, item)))
 
-    # TODO: Check database for matching profiles
-    #for item in str_list:
-        #print(persons[0][item])
-
-    """for person in persons:
-        for item in str_list:
-            if person[item] == longest[item]:"""
+    # Check database for matching profiles
     match_list = []
+    found = False
+
+    # Iterate through each person to compare values to longest values
     for person in persons:
         for item in str_list:
             match_list.append((person[item]))
-        print(match_list)
-        print(longest)
+        # If values match, print name and set found to true
         if match_list == longest:
             print(person["name"])
-            check
+            found = True
         match_list = []
+
+    if found == False:
+        print("No Match")
 
     return
 
