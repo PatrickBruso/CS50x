@@ -20,21 +20,21 @@ def main():
     with open(sys.argv[2]) as file:
         dna_sequence = file.read()
 
-    # TODO: Find longest match of each STR in DNA sequence
+    # Find longest match of each STR in DNA sequence
     # Pull STRs
     str_list = list(persons[0])
     str_list.pop(0)
 
-    #Create variable for longest subsequences
-    longest = []
+    #Create dictionary for longest subsequences match
+    longest = {}
 
     # Call longest_match function for each STR
     for str in str_list:
-        longest.append(longest_match(dna_sequence, str))
-
-    print(longest)
+        longest[str] = longest_match(dna_sequence, str)
 
     # TODO: Check database for matching profiles
+    for person in persons:
+        
 
     return
 
