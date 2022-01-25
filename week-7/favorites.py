@@ -11,9 +11,11 @@ with open("favorites.csv", "r") as file:
     for row in reader:
         # Strip off whitespace and make uppercase
         title = row["title"].strip().upper()
-        # Add to dictionary
-        titles[title] += 1
+        # Add to dictionary and increment for duplicates
+        if title in titles:
+            titles[title] += 1
+        else:
+            titles[title] = 0
 
-# Use sorted method to sort list of titles
-for title in sorted(titles):
+for title in titles:
     print(title)
