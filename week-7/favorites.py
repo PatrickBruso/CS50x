@@ -7,4 +7,7 @@ with open("favorites.csv", "r") as file:
 
     # Print out all show titles
     for row in reader:
-        print(row[1])
+        print(row["title"])
+
+    # Filter out duplicates
+    
