@@ -16,5 +16,5 @@ with open("favorites.csv", "r") as file:
             titles[title] = 0
         titles[title] += 1
 
-for title in titles:
+for title in sorted(titles):
     print(title, titles[title])
