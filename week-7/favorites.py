@@ -16,5 +16,10 @@ with open("favorites.csv", "r") as file:
             titles[title] = 0
         titles[title] += 1
 
-for title in sorted(titles):
+# Function that obtains the value for a title (to use with sorted)
+def get_value(title):
+    return titles[title]
+
+# Call sorted and apply the key=get_value function call
+for title in sorted(titles, key=get_value):
     print(title, titles[title])
