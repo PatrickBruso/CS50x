@@ -1,0 +1,3 @@
+Notes for lecture:
+* SQL is used to keep collections of data that can be used in your programs.
+* 
