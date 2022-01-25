@@ -21,5 +21,8 @@ def get_value(title):
     return titles[title]
 
 # Call sorted and apply the key=get_value function call
-for title in sorted(titles, key=get_value):
+for title in sorted(titles, key=lambda title: titles[title]):
     print(title, titles[title])
+
+""" instead of passing the get_value function to key, you can use the
+lambda (anonymous) function to do the same"""
