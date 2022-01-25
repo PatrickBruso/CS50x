@@ -6,3 +6,4 @@ Notes for lecture:
 * SQL will help us order data easier
 * Takes a lot of python code to do something as simple as getting counts or titles from a database file
 * CRUD - Create, Read, Update, Delete
+* Take a beginner course on sqlite3 on YouTube
