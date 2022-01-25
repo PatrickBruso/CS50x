@@ -2,4 +2,5 @@ Notes for lecture:
 * SQL is used to keep collections of data that can be used in your programs.
 * CSV files are examples of flat-file databases - easy way to store data for retrival
 * Can use Python to go through data - see favorites.py
+* Lambda function will allow you to pass an anonymous function for one-time usage
 * SQL will help us order data easier
