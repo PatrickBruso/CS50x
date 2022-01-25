@@ -1,5 +1,7 @@
 import csv
 
+titles = []
+
 # Open CSV file
 with open("favorites.csv", "r") as file:
     # Create reader
@@ -7,7 +9,8 @@ with open("favorites.csv", "r") as file:
 
     # Print out all show titles
     for row in reader:
-        print(row["title"])
+        if not row["title"] in titles:
+            titles.append(row["title"])
 
-    # Filter out duplicates
-    
+for title in titles:
+    print(title)
