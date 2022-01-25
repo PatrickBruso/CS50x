@@ -1,7 +1,6 @@
 import csv
 
-# Use set to ignore duplicates
-titles = set()
+titles = {}
 
 # Open CSV file
 with open("favorites.csv", "r") as file:
@@ -12,8 +11,8 @@ with open("favorites.csv", "r") as file:
     for row in reader:
         # Strip off whitespace and make uppercase
         title = row["title"].strip().upper()
-        # Add to set
-        titles.add(title)
+        # Add to dictionary
+        titles[title] += 1
 
 # Use sorted method to sort list of titles
 for title in sorted(titles):
