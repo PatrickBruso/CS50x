@@ -4,3 +4,4 @@ Notes for lecture:
 * Can use Python to go through data - see favorites.py
 * Lambda function will allow you to pass an anonymous function for one-time usage
 * SQL will help us order data easier
+* Takes a lot of python code to do something as simple as getting counts or titles from a database file
