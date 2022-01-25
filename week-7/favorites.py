@@ -21,7 +21,7 @@ def get_value(title):
     return titles[title]
 
 # Call sorted and apply the key=get_value function call
-for title in sorted(titles, key=lambda title: titles[title]):
+for title in sorted(titles, key=lambda title: titles[title], reverse=True):
     print(title, titles[title])
 
 """ instead of passing the get_value function to key, you can use the
