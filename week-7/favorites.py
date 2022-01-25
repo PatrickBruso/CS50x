@@ -9,7 +9,7 @@ with open("favorites.csv", "r") as file:
 
     # Print out all show titles
     for row in reader:
-        # Strip off whitespace
+        # Strip off whitespace and make uppercase
         title = row["title"].strip().upper()
         # Check whether title is already in list before appending
         if not title in titles:
