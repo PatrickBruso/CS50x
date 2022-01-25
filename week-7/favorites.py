@@ -12,10 +12,9 @@ with open("favorites.csv", "r") as file:
         # Strip off whitespace and make uppercase
         title = row["title"].strip().upper()
         # Add to dictionary and increment for duplicates
-        if title in titles:
-            titles[title] += 1
-        else:
+        if not title in titles:
             titles[title] = 0
+        titles[title] += 1
 
 for title in titles:
-    print(title)
+    print(title, titles[title])
