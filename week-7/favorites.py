@@ -15,4 +15,4 @@ rows = db.execute("SELECT COUNT(*) AS counter FROM favorites WHERE title LIKE ?"
 row = rows[0]
 
 # Print out counter from first row (which is a dictionary)
-print(row["counter"])
+print("Count: ", row["counter"])
