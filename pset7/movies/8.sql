@@ -8,6 +8,6 @@ SELECT name
           FROM stars
         WHERE movie_id
            IN (
-              SELECT id
-                FROM movies
-               WHERE title = "Toy Story"));
+               SELECT id
+                 FROM movies
+                WHERE title = "Toy Story"));
