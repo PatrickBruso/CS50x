@@ -33,3 +33,19 @@ SELECT id, name, license_plate
 
 -- Vanessa (id = 221103) entered at 9:15 and left at 10:16. Let's check her out.
 SELECT transcript FROM interviews WHERE name = "Vanessa";
+
+-- There were no interviews with Vanessa.  Let's check the interviews with anyone else at the bakery that day.
+SELECT name, transcript
+FROM interviews
+WHERE name IN(
+    SELECT name
+      FROM people
+     WHERE license_plate
+        IN (
+            SELECT license_plate
+            FROM bakery_security_logs
+            WHERE year = 2021
+            AND month = 07
+            AND day = 28
+            AND hour = 9  AND minute > 13 OR hour = 10 AND minute < 17
+));
