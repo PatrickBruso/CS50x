@@ -101,4 +101,16 @@ AND month = 07
 AND day = 28
 AND duration <= 60;
 
+-- Let's cross reference the caller numbers with owner names
+SELECT name, phone_number
+FROM people
+WHERE phone_number IN (
+    SELECT caller
+    FROM phone_calls
+    WHERE year = 2021
+    AND month = 07
+    AND day = 28
+    AND duration <= 60
+);
+
 -- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
