@@ -156,4 +156,4 @@ WHERE passport_number IN (
     )
 );
 
--- Bruce is the only one on the flight who matches all of the other tips.  
+-- Bruce is the only one on the flight who matches all of the other tips.  Bruce was the thief, Robin the accomplice, and he escaped to New York City.
