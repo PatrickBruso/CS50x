@@ -28,4 +28,5 @@ SELECT id, name
         AND month = 07
         AND day = 28
         AND hour = 9  AND minute > 13 OR hour = 10 AND minute < 17
+        ORDER BY hour, minute
 );
