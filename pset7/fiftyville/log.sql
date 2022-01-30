@@ -30,3 +30,6 @@ SELECT id, name, license_plate
         AND hour = 9  AND minute > 13 OR hour = 10 AND minute < 17
         ORDER BY hour, minute
 );
+
+-- Vanessa (id = 221103) entered at 9:15 and left at 10:16. Let's check her out.
+SELECT transcript FROM interviews WHERE name = "Vanessa";
