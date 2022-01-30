@@ -14,8 +14,18 @@ SELECT description, id
    WHERE year = 2021
      AND month = 07
      AND day = 28
-     AND hour = 9 OR hour = 10
+     AND hour = 9  AND minute > 13 OR hour = 10 AND minute < 17
 ORDER BY hour, minute;
 
 -- Let's run a list of all the people whose license plate was seen at the bakery between 9:14 and 10:20
-SELECT id, name FROM people WHERE 
+SELECT id, name
+  FROM people
+ WHERE license_plate
+    IN (
+        SELECT license_plate, hour, minute
+        FROM bakery_security_logs
+        WHERE year = 2021
+        AND month = 07
+        AND day = 28
+        AND hour = 9  AND minute > 13 OR hour = 10 AND minute < 17
+);
