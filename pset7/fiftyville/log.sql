@@ -126,4 +126,6 @@ WHERE phone_number IN (
     AND day = 28
     AND duration <= 60
 );
+
+-- Bruce called Robin, Diana called Philip
 -- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
