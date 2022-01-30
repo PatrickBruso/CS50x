@@ -39,10 +39,6 @@ SELECT name, transcript
   FROM interviews
  WHERE year = 2021
    AND month = 07
-   AND day = 28
-   AND name IN (
-        SELECT name, transcript
-  FROM interviews
- WHERE year = 2021
-   AND month = 07
-   AND day = 28
+   AND day = 28;
+
+-- This gives us interviews with 4 people: Emma (bakery owner), Raymond, Eugene, and Ruth.  Ruth saw the thief leave the bakery within 10 minutes of the theft.  Let's check the logs
