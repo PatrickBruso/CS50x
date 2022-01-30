@@ -42,3 +42,18 @@ SELECT name, transcript
    AND day = 28;
 
 -- This gives us interviews with 4 people: Emma (bakery owner), Raymond, Eugene, and Ruth.  Ruth saw the thief leave the bakery within 10 minutes of the theft.  Let's check the logs
+SELECT id, name, license_plate
+  FROM people
+ WHERE license_plate
+    IN (
+        SELECT license_plate, hour, minute, activity
+        FROM bakery_security_logs
+        WHERE year = 2021
+        AND month = 07
+        AND day = 28
+        AND hour = 10 AND minute > 14 AND minute < 26
+        AND activity = "exit"
+);
+
+-- List of suspects: Vanessa (top suspect), Barry, Iman, Sofia, Luca, Diana, Kelsey, Bruce.
+-- Let's check Eugene's tip that he saw the thief at the ATM on Leggett Street the morning of the crime.
