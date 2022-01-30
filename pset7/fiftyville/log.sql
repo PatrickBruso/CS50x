@@ -18,7 +18,7 @@ SELECT description, id
 ORDER BY hour, minute;
 
 -- Let's run a list of all the people whose license plate was seen at the bakery between 9:14 and 10:20
-SELECT id, name
+SELECT id, name, license_plate
   FROM people
  WHERE license_plate
     IN (
