@@ -93,3 +93,11 @@ WHERE id IN (
         AND transaction_type = "withdraw"));
 
 -- This gives us 4 suspects who also left within 10 minutes of the crime: Iman, Luca, Diana, Bruce.
+-- Let's check Raymond's tip that the thief made a call as they were leaving for less than a minute
+SELECT id, caller, receiver, duration
+FROM phone_calls
+WHERE year = 2021
+AND month = 07
+AND day = 28;
+
+-- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
