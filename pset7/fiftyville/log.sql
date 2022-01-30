@@ -56,4 +56,38 @@ SELECT id, name, license_plate
 );
 
 -- List of suspects: Vanessa (top suspect), Barry, Iman, Sofia, Luca, Diana, Kelsey, Bruce.
--- Let's check Eugene's tip that he saw the thief at the ATM on Leggett Street the morning of the crime.
+-- Let's check Eugene's tip that he saw the thief withdrawing money at the ATM on Leggett Street the morning of the crime.
+SELECT id, account_number, atm_location, transaction_type, amount
+FROM atm_transactions
+WHERE year = 2021
+AND month = 07
+AND day = 28
+AND atm_location = "Leggett Street"
+AND transaction_type = "withdraw";
+
+-- This gives us 8 account numbers.  Let's cross reference with bank accounts
+SELECT person_id
+FROM bank_accounts
+WHERE account_number IN (
+    SELECT account_number
+    FROM atm_transactions
+    WHERE year = 2021
+    AND month = 07
+    AND day = 28
+    AND atm_location = "Leggett Street"
+    AND transaction_type = "withdraw");
+
+-- Cross reference person_id with people.id
+SELECT name, phone_number, passport_number, license_plate
+FROM people
+WHERE id IN (
+    SELECT person_id
+    FROM bank_accounts
+    WHERE account_number IN (
+        SELECT account_number
+        FROM atm_transactions
+        WHERE year = 2021
+        AND month = 07
+        AND day = 28
+        AND atm_location = "Leggett Street"
+        AND transaction_type = "withdraw"));
