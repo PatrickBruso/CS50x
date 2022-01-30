@@ -128,4 +128,15 @@ WHERE phone_number IN (
 );
 
 -- Bruce called Robin, Diana called Philip
+
 -- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
+SELECT *
+FROM flights
+WHERE origin_airport_id = 8
+AND year = 2021
+AND month = 07
+AND day = 29
+ORDER BY hour, minute;
+
+-- The earliest flight leaving Fiftyville was at 8:20 that day, heading to LaGuardia.  Let's see who was on that flight
+SELECT 
