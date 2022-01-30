@@ -139,4 +139,21 @@ AND day = 29
 ORDER BY hour, minute;
 
 -- The earliest flight leaving Fiftyville was at 8:20 that day, heading to LaGuardia.  Let's see who was on that flight
-SELECT 
+SELECT name
+FROM people
+WHERE passport_number IN (
+    SELECT passport_number
+    FROM passengers
+    WHERE flight_id IN (
+        SELECT id
+        FROM flights
+        WHERE origin_airport_id = 8
+        AND year = 2021
+        AND month = 07
+        AND day = 29
+        AND hour = 8
+        AND minute = 20
+    )
+);
+
+-
