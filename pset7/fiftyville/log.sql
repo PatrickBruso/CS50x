@@ -7,3 +7,4 @@ SELECT description, id
    AND month = 07
    AND day = 28
    AND street = "Humphrey Street";
+   -- Obtained crime scene id of 295
