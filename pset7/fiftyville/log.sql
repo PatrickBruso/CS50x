@@ -113,4 +113,5 @@ WHERE phone_number IN (
     AND duration <= 60
 );
 
+-- This gives us 4 suspects from Ruth's list: Sofia, Diana, Kelsey, Bruce and X suspects from Eugene's tip: and 1 Suspect from Ruth's tip and Eugene's Tip:
 -- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
