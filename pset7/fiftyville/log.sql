@@ -9,10 +9,10 @@ SELECT description, id
    AND street = "Humphrey Street";
 
    -- Obtained crime scene id of 295.  Let's check bakery logs.
-SELECT id, activity
+SELECT id, activity, hour, minute
   FROM bakery_security_logs
  WHERE year = 2021
    AND month = 07
    AND day = 28
-   AND hour = 10
-   AND minute = 15;
+   AND hour = 9 OR hour = 10
+ORDER BY hour, minute;
