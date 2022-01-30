@@ -22,7 +22,7 @@ SELECT id, name
   FROM people
  WHERE license_plate
     IN (
-        SELECT license_plate, hour, minute
+        SELECT license_plate
         FROM bakery_security_logs
         WHERE year = 2021
         AND month = 07
