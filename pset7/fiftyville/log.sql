@@ -115,4 +115,15 @@ WHERE phone_number IN (
 
 -- This gives us 4 suspects from Ruth's tip: Sofia, Diana, Kelsey, Bruce and 5 suspects from Eugene's tip: Kenny, Benista, Taylor, Diana, Bruce, and 2 Suspect from Ruth's tip and Eugene's Tip: Diana, Bruce
 -- Top suspects at this point are Diana and Bruce who both left within 10 minutes, took out money from Leggett ATM, and made a call that day for less than 10 minutes.
+-- Let's see who they were calling
+SELECT name, phone_number
+FROM people
+WHERE phone_number IN (
+    SELECT receiver
+    FROM phone_calls
+    WHERE year = 2021
+    AND month = 07
+    AND day = 28
+    AND duration <= 60
+);
 -- Let's also check Raymond's tip that the thief was planning to take the earliest flight out of Fiftyville on 7/29/2021, and asked the accomplice to purchase the ticket
