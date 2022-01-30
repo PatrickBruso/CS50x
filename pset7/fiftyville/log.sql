@@ -91,3 +91,5 @@ WHERE id IN (
         AND day = 28
         AND atm_location = "Leggett Street"
         AND transaction_type = "withdraw"));
+
+-- This gives us 4 suspects who also left within 10 minutes of the crime: Iman, Luca, Diana, Bruce.
