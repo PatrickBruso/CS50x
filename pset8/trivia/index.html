@@ -8,13 +8,20 @@
         <script>
             document.AddEventListener('DOMContentLoaded'), function() {
 
-                // When correct answer is clicked, change color to green
+                // When right answer is clicked, change color to green and add text
                 let right = document.querySelector('.right');
                 right.addEventListener('click', function()
                 {
                     right.style.backgroundColor = 'green';
                     document.querySelector('#choicetext').innerHTML = 'Right!';
                 });
+
+                // When wrong answer is clicked, change color to red and add text
+                let wrong = document.quearySelectorAll('.wrong');
+                for (let i = 0; i < wrong.length; i++) {
+                    wrong[i].addEventListener('click', function() {
+                        wrong[i].style.backgroundColor = 'red';
+                        )};
         </script>
     </head>
     <body>
