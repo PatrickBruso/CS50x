@@ -6,11 +6,14 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
-            let button = document.querySelector('button');
-            document.querySelector('#wrong').addEventListener('click', function()
-            {
-                button.style.backgroundColor = 'red';
-            });
+            document.AddEventListener('DOMContentLoaded'), function() {
+
+                // When correct answer is clicked, change color to green
+                let correct = document.querySelector('.right');
+                document.querySelector('#wrong').addEventListener('click', function()
+                {
+                    button.style.backgroundColor = 'red';
+                });
         </script>
     </head>
     <body>
