@@ -6,7 +6,7 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
-            document.AddEventListener('DOMContentLoaded'), function() {
+            document.addEventListener('DOMContentLoaded'), function() {
 
                 // When right answer is clicked, change color to green and add text
                 let right = document.querySelector('.right');
@@ -25,6 +25,9 @@
                         document.querySelector('#choicetext').innerHTML = 'Wrong!';
                     )};
                 }
+
+                // Check free response answer
+                document.querySelector('#check').addEventListener
             }
         </script>
     </head>
