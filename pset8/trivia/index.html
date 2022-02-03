@@ -17,7 +17,7 @@
                 });
 
                 // When wrong answer is clicked, change color to red and add text
-                let wrong = document.quearySelectorAll('.wrong');
+                let wrong = document.querySelectorAll('.wrong');
                 for (let i = 0; i < wrong.length; i++) {
                     wrong[i].addEventListener('click', function()
                     {
@@ -25,6 +25,7 @@
                         document.querySelector('#choicetext').innerHTML = 'Wrong!';
                     )};
                 }
+            }
         </script>
     </head>
     <body>
