@@ -10,7 +10,7 @@
             // Run script once DOM is loaded
             document.addEventListener('DOMContentLoaded', function() {
 
-                // When correct feedback2 is clicked, change color to green and add text
+                // When correct answer is clicked, change color to green and add text
                 let correct = document.querySelector('.correct');
                 correct.addEventListener('click', function()
                 {
@@ -18,28 +18,27 @@
                     document.querySelector('#feedback1').innerHTML = 'Correct!';
                 });
 
-                // When incorrect feedback2 is clicked, change color to red and add text
-                let incorrect = document.querySelectorAll('.incorrect');
-                for (let i = 0; i < incorrect.length; i++) {
-                    incorrect[i].addEventListener('click', function()
+                // When incorrect answer is clicked, change color to red and add text
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function()
                     {
-                        incorrect[i].style.backgroundColor = 'red';
+                        incorrects[i].style.backgroundColor = 'red';
                         document.querySelector('#feedback1').innerHTML = 'Incorrect!';
                     )};
                 }
 
-                // Check free response feedback2
+                // Check free response submission
                 document.querySelector('#check').addEventListener('click', function()
                 {
                     let input = document.querySelector('input');
-                    if (input.value == 'Delaware')
+                    if (input.value === 'Delaware')
                     {
                         input.style.backgroundColor = 'green';
-                        document.querySelector('#feedback2').innerHTML = 'correct!';
-                    } else
-                    {
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
                         input.style.backgroundColor = 'red';
-                        document.querySelector('#feedback2').innerHTML = 'incorrect!';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect!';
                     }
                 });
             });
