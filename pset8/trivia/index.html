@@ -9,10 +9,11 @@
             document.AddEventListener('DOMContentLoaded'), function() {
 
                 // When correct answer is clicked, change color to green
-                let correct = document.querySelector('.right');
-                document.querySelector('#wrong').addEventListener('click', function()
+                let right = document.querySelector('.right');
+                right.addEventListener('click', function()
                 {
-                    button.style.backgroundColor = 'red';
+                    right.style.backgroundColor = 'green';
+                    document.querySelector('#choicetext').innerHTML = 'Right!';
                 });
         </script>
     </head>
