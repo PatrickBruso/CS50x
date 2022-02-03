@@ -6,6 +6,7 @@
         <link href="styles.css" rel="stylesheet">
         <title>Trivia!</title>
         <script>
+
             document.addEventListener('DOMContentLoaded'), function() {
 
                 // When right answer is clicked, change color to green and add text
@@ -27,8 +28,21 @@
                 }
 
                 // Check free response answer
-                document.querySelector('#check').addEventListener
-            }
+                document.querySelector('#check').addEventListener('click', function()
+                {
+                    let input = document.querySelector('input');
+                    if (input.value == 'Delaware')
+                    {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#answer').innerHTML = 'Right!';
+                    } else
+                    {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#answer').innerHTML = 'Wrong!';
+                    }
+                });
+            });
+
         </script>
     </head>
     <body>
