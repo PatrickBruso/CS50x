@@ -10,36 +10,36 @@
             // Run script once DOM is loaded
             document.addEventListener('DOMContentLoaded', function() {
 
-                // When correct answer is clicked, change color to green and add text
+                // When correct feedback2 is clicked, change color to green and add text
                 let correct = document.querySelector('.correct');
                 correct.addEventListener('click', function()
                 {
                     correct.style.backgroundColor = 'green';
-                    document.querySelector('#choicetext').innerHTML = 'Correct!';
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';
                 });
 
-                // When incorrect answer is clicked, change color to red and add text
+                // When incorrect feedback2 is clicked, change color to red and add text
                 let incorrect = document.querySelectorAll('.incorrect');
                 for (let i = 0; i < incorrect.length; i++) {
                     incorrect[i].addEventListener('click', function()
                     {
                         incorrect[i].style.backgroundColor = 'red';
-                        document.querySelector('#choicetext').innerHTML = 'Incorrect!';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect!';
                     )};
                 }
 
-                // Check free response answer
+                // Check free response feedback2
                 document.querySelector('#check').addEventListener('click', function()
                 {
                     let input = document.querySelector('input');
                     if (input.value == 'Delaware')
                     {
                         input.style.backgroundColor = 'green';
-                        document.querySelector('#answer').innerHTML = 'correct!';
+                        document.querySelector('#feedback2').innerHTML = 'correct!';
                     } else
                     {
                         input.style.backgroundColor = 'red';
-                        document.querySelector('#answer').innerHTML = 'incorrect!';
+                        document.querySelector('#feedback2').innerHTML = 'incorrect!';
                     }
                 });
             });
@@ -63,7 +63,7 @@
                 <button class="incorrect">1849</button>
                 <button class="incorrect">1845</button>
 
-                <p id="choicetext"></p>
+                <p id="feedback1"></p>
             </div>
 
             <div class="section">
@@ -74,7 +74,7 @@
                 <input type="text"></input>
                 <button id="check">Check Answer</button>
 
-                <p id="answer"></p>
+                <p id="feedback2"></p>
             </div>
         </div>
     </body>
