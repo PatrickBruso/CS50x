@@ -5,3 +5,13 @@
 .centered {
     text-align: center;
 }
+
+.paragraphpad {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 10px;
+}
+
+.padleft {
+    padding-left: 10px;
+}
