@@ -8,22 +8,22 @@
         <title>Projects - Patrick Bruso</title>
     </head>
     <body>
-    <div class="container-fluid">
-            <ul class="m-3 nav">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="projects.html">Projects</a>
-                </li>
-            </ul>
-        </div>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="index.html"><li>Home</li></a>
+                    <a href="about.html"><li>About</li></a>
+                    <a href="projects.html"><li>Projects</li></a>
+                    <a href="contact.html"><li>Contact</li></a>
+                </ul>
+            </div>
+        </nav>
 
-        <h1 class="centered">My Projects</h1>
-        <hr>
+        <h3 class="centered">My Projects</h3>
 
         <p class="paragraphpad">I have two main projects that I am currently working on.  The first is a pixelator app and the second is a 2D side-scrolling game in PyGame.</p>
 
@@ -35,11 +35,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="tablecolor">
                     <th scope="row">Pixelator!</th>
                     <td>This Python app lets you upload an image and choose a palette of colors to apply to the image in order to make an 8, 16, or 32-color pixel image.</td>
                 </tr>
-                <tr>
+                <tr class="tablecolor">
                     <th scope="row">JetBear</th>
                     <td>This PyGame app is a 2D side-scrolling platformer where you control a bear with a jetpack in order to collect salmon and avoid beehives.</td>
                 </tr>

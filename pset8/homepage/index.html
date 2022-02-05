@@ -8,18 +8,23 @@
         <title>My Webpage</title>
     </head>
     <body>
-        <div class="container-fluid">
-            <ul class="m-3 nav">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="projects.html">Projects</a>
-                </li>
-            </ul>
-        </div>
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="index.html"><li>Home</li></a>
+                    <a href="about.html"><li>About</li></a>
+                    <a href="projects.html"><li>Projects</li></a>
+                    <a href="contact.html"><li>Contact</li></a>
+                </ul>
+            </div>
+        </nav>
+
+        <h3 class="centered">My Webpage</h3>
+
+        <p class="centered ptext">Welcome to my webpage.  This webpage was created for week 8 of Harvard's CS50x.  This is the first webpage I have created from scratch and I think that's pretty cool.</p>
     </body>
 </html>
