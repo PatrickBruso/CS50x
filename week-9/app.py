@@ -10,5 +10,5 @@ def index():
 
 @app.route("/greet")
 def greet():
-    name = request.args.get("name", "world")
+    name = request.args.get("name")
     return render_template("greet.html", name=name)
