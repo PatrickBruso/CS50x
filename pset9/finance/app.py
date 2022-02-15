@@ -146,6 +146,10 @@ def register():
         # Return index.html after registration
         return render_template("index.html")
 
+    # User reached route via GET redirect to register
+    else:
+        return render_template("register.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
