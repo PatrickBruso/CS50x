@@ -143,6 +143,9 @@ def register():
         if not new_user:
             return apology("username is already registered", 403)
 
+        # Return index.html after registration
+        return render_template("index.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
