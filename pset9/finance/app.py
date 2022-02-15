@@ -72,6 +72,10 @@ def index():
         # Calculate cost of purchase
         cost = int(request.form.get("shares")) * quote.price
 
+        # Compare cash available to cost of purchase
+        if cost > cash[0]["cash"]:
+            return apology("not enough funds for purchase")
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
