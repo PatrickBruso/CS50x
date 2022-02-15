@@ -121,6 +121,18 @@ def quote():
         # Obtain quote from lookup function
         quote = lookup(request.form.get("symbol"))
 
+        # Check for valid quote
+        if quote is None:
+            return apology("symbol not valid", 403)
+
+        # Render quoted.html if valid quote
+        else:
+            return render_template("quoted.html", quote=quote)
+
+    # Redirect for GET request
+    else:
+        return render_template("quote.html")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
