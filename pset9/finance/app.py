@@ -113,7 +113,13 @@ def quote():
     """Get stock quote."""
     # Check to make sure requested submitted via POST
     if request.method == "POST":
-        
+
+        # Make sure user inputted something
+        if not request.form.get("symbol"):
+            return apology("must enter stock symbol")
+
+        # Obtain quote from lookup function
+        quote = lookup(request.form.get("symbol"))
 
 
 @app.route("/register", methods=["GET", "POST"])
