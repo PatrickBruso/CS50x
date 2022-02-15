@@ -5,5 +5,5 @@
 {% endblock %}
 
 {% block main %}
-    <p> a share of {{ quote.symbol }} costs {{quote.usd?}}</p>
+    <p> a share of {{ quote.symbol }} costs {{ usd(quote.price) }}</p>
 {% endblock %}
