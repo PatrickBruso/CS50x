@@ -58,6 +58,10 @@ def index():
         if quote is None:
             return apology("symbol not valid")
 
+        # Check number of shares is positive integer
+        if request.form.get("shares") < 1:
+            return apology("number of shares to buy must be positive")
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
