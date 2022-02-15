@@ -66,6 +66,12 @@ def index():
         if int(request.form.get("shares")) < 1:
             return apology("number of shares to buy must be positive")
 
+        # Obtain users current amount of cash available
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+        # Calculate cost of purchase
+        cost = int(request.form.get("shares")) * quote.price
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
