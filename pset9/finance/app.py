@@ -134,7 +134,7 @@ def register():
             return apology("password and confirmation do not match", 403)
 
         # Create hash of user's password to store in db
-        hashed_pw = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
+        pwhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
 
 
 @app.route("/sell", methods=["GET", "POST"])
