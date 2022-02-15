@@ -136,6 +136,13 @@ def register():
         # Create hash of user's password to store in db
         pwhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
 
+        # Store new user in db
+        new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), pwhash)
+
+        # Check if user is already in db
+        if not new_user:
+            return apology("username is already registered", 403)
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
