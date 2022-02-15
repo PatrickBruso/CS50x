@@ -125,9 +125,13 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 403)
 
-        # Ensure password was submitted and matches confirmation
+        # Ensure password and confirmation were submitted
         elif not request.form.get("password") or not request.form.get("confirmation"):
             return apology("must provide password", 403)
+
+        # Ensure that password and confirmation match
+        elif request.form.get("password") != request.form.get("confirmation"):
+            return apology("password and confirmation do not match", 403)
 
 
 @app.route("/sell", methods=["GET", "POST"])
