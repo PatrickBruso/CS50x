@@ -47,8 +47,8 @@ def index():
     # Make sure POST request
     if request.method == "POST":
 
-        # Check that symbol was entered
-        if not request.form.get("symbol"):
+        # Check that symbol/shares was entered
+        if not request.form.get("symbol") or not request.form.get("shares"):
             return apology("must enter stock symbol")
 
         # Obtain quote from lookup function
@@ -59,7 +59,7 @@ def index():
             return apology("symbol not valid")
 
         # Check number of shares is positive integer
-        if request.form.get("shares") < 1:
+        if int(request.form.get("shares")) < 1:
             return apology("number of shares to buy must be positive")
 
 
