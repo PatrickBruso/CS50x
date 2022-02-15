@@ -43,7 +43,20 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+
+    # Make sure POST request
+    if request.method == "POST":
+
+        # Check that symbol was entered
+        if not request.form.get("symbol"):
+            return apology("must enter stock symbol")
+
+        # Obtain quote from lookup function
+        quote = lookup(request.form.get("symbol"))
+
+        # Check for valid quote
+        if quote is None:
+            return apology("symbol not valid")
 
 
 @app.route("/buy", methods=["GET", "POST"])
