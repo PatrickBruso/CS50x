@@ -44,7 +44,15 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Make sure POST request
+    # TODO
+
+
+@app.route("/buy", methods=["GET", "POST"])
+@login_required
+def buy():
+    """Buy shares of stock"""
+
+        # Make sure POST request
     if request.method == "POST":
 
         # Check that symbol was entered
@@ -75,13 +83,6 @@ def index():
         # Compare cash available to cost of purchase
         if cost > cash[0]["cash"]:
             return apology("not enough funds for purchase")
-
-
-@app.route("/buy", methods=["GET", "POST"])
-@login_required
-def buy():
-    """Buy shares of stock"""
-    return apology("TODO")
 
 
 @app.route("/history")
