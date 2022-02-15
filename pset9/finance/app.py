@@ -133,6 +133,9 @@ def register():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("password and confirmation do not match", 403)
 
+        # Create hash of user's password to store in db
+        hashed_pw = 
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
