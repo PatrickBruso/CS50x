@@ -88,7 +88,7 @@ def buy():
         db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
 
         # Add purchase to transactions table
-        db.execute
+        db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, )
 
 
 @app.route("/history")
