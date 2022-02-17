@@ -57,7 +57,7 @@ def index():
         name = lookup(symbol['symbol'])['name']
 
     # Render template with values
-    return render_template("index.html", portfolio=portfolio, cash=cash)
+    return render_template("index.html", portfolio=portfolio, cash=cash, price=price, name=name)
 
 
 @app.route("/buy", methods=["GET", "POST"])
