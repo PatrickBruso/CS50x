@@ -98,11 +98,11 @@ def buy():
 
         # If no shares, add stock to portfolio and update shares amount
         if not shares:
-            db.execute("INSERT INTO portfolio (symbol, shares) VALUES (?, ?)", quote.symbol, int(request.form.get("shares")))
+            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES (?, ?, ?)", session["user_id"], quote.symbol, int(request.form.get("shares")))
 
         # If already own symbol, update shares amount with new purchase
         else:
-            db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares+int(request.form.get("shares")), quote.symbol)
+            db.execute("UPDATE portfolio SET shares=? WHERE symbol=? AND user_id=?", shares+int(request.form.get("shares")), quote.symbol, session["user_id"])
 
         # Render template for index when finished
         return render_template("index.html")
