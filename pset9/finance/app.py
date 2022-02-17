@@ -87,33 +87,34 @@ def buy():
             return apology("number of shares to buy must be positive")
 
         # Obtain users current amount of cash available
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash = cash_list[0]["cash"]
 
         # Calculate cost of purchase
         cost = int(request.form.get("shares")) * quote['price']
 
         # Compare cash available to cost of purchase
-        if cost > cash[0]["cash"]:
+        if cost > cash:
             return apology("not enough funds for purchase")
 
         # Update user cash if transaction goes through
         db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
 
         # Add purchase to transactions table
-        db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
         # Update user's portfolio with purchase
 
         # Obtain number of shares already purchased
-        shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote.symbol)
+        shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote['symbol'])
 
         # If no shares, add stock to portfolio and update shares amount
         if not shares:
-            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES (?, ?, ?)", session["user_id"], quote.symbol, int(request.form.get("shares")))
+            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES (?, ?, ?)", session["user_id"], quote['symbol'], int(request.form.get("shares")))
 
         # If already own symbol, update shares amount with new purchase
         else:
-            db.execute("UPDATE portfolio SET shares=? WHERE symbol=? AND user_id=?", shares+int(request.form.get("shares")), quote.symbol, session["user_id"])
+            db.execute("UPDATE portfolio SET shares=? WHERE symbol=? AND user_id=?", shares+int(request.form.get("shares")), quote['symbol'], session["user_id"])
 
         # Render template for index when finished
         return render_template("index.html")
