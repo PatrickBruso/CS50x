@@ -63,7 +63,6 @@ def index():
         price = lookup(symbol['symbol'])['price']
         name = lookup(symbol['symbol'])['name']
         share_total = symbol['shares'] * price
-        symbol.update({'price': price, 'share_total': share_total})
         total += share_total
 
     # Render template with values
