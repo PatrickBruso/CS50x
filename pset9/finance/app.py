@@ -91,7 +91,8 @@ def buy():
         # Add purchase to transactions table
         db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
-        
+        # Update user's portfolio with purchase
+        # add portfolio table (look at website main page to see what to add)
 
 
 @app.route("/history")
