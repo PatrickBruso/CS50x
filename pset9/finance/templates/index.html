@@ -20,9 +20,9 @@
         {% for symbol in portfolio %}
                 <tr>
                     <td class="text-start">{{ symbol['symbol'] }}</td>
-                    <td class="text-start">{{ lookup(symbol['symbol']) }}</td>
+                    <td class="text-start">{{ lookup(symbol['symbol'])['name'] }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
-                    <td class="text-end">{{ lookup(symbol['price']) | usd }}</td>
+                    <td class="text-end">{{ lookup(symbol['symbol'])['price'] | usd }}</td>
                     <td class="text-end">{{ shares * symbol['price'] | usd }}</td>
                 </tr>
         {% endfor %}
