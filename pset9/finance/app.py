@@ -48,8 +48,12 @@ def index():
     obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
     cash = obtain_cash[0]['cash']
 
-    # Lookup quote for each symbol in portfolio
+    # Obtain list of symbols and shares
     portfolio = db.execute("SELECT symbol, shares FROM portfolio WHERE user_id=?", session["user_id"])
+
+    # Obtain values for each symbol with lookup function
+    for symbol in portfolio:
+        quote = lookup(symbol['symbol'])
 
 
 @app.route("/buy", methods=["GET", "POST"])
