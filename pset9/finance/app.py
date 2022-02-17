@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 from helpers import apology, login_required, lookup, usd
 
@@ -88,7 +89,7 @@ def buy():
         db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
 
         # Add purchase to transactions table
-        db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, )
+        db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, datetime.now())
 
 
 @app.route("/history")
