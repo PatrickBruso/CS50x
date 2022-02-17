@@ -27,11 +27,11 @@
         <tfoot>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
-                <td class="border-0 text-end">$9,523.80</td>
+                <td class="border-0 text-end">{{ cash }}</td>
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">$9,999.30</td>
+                <td class="border-0 w-bold text-end">{{ cash + (shares * quote.latestPrice) }}</td>
             </tr>
         </tfoot>
     </table>
