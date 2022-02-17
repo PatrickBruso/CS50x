@@ -120,7 +120,7 @@ def buy():
             db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares+int(request.form.get("shares")), quote['symbol'])
 
         # Render template for index when finished
-        return render_template("index.html")
+        return redirect("/")
 
     # Check for GET request and redirect
     else:
