@@ -104,7 +104,7 @@ def buy():
         db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
 
         # Add purchase to transactions table
-        db.execute("INSERT INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        db.execute("INSERT INTO transactions (symbol, shares, price, date) VALUES (?, ?, ?, ?)", quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
         # Update user's portfolio with purchase
 
@@ -113,7 +113,7 @@ def buy():
 
         # If no shares, add stock to portfolio and update shares amount
         if not shares:
-            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES (?, ?, ?)", session["user_id"], quote['symbol'], int(request.form.get("shares")))
+            db.execute("INSERT INTO portfolio (symbol, shares) VALUES (?, ?)", quote['symbol'], int(request.form.get("shares")))
 
         # If already own symbol, update shares amount with new purchase
         else:
