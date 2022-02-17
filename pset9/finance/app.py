@@ -53,7 +53,8 @@ def index():
 
     # Obtain values for each symbol with lookup function
     for symbol in portfolio:
-        quote = lookup(symbol['symbol'])
+        quote = lookup(symbol['symbol']) # This isn't working
+        print(quote)
 
     # Render template with values
     return render_template("index.html", symbols=portfolio, cash=cash)
