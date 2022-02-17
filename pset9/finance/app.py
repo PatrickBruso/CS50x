@@ -84,6 +84,12 @@ def buy():
         if cost > cash[0]["cash"]:
             return apology("not enough funds for purchase")
 
+        # Update user cash if transaction goes through
+        db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
+
+        # Add purchase to transactions table
+        db.execute
+
 
 @app.route("/history")
 @login_required
