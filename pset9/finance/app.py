@@ -90,7 +90,7 @@ def buy():
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
         # Calculate cost of purchase
-        cost = int(request.form.get("shares")) * quote.latestPrice
+        cost = int(request.form.get("shares")) * quote['latestPrice']
 
         # Compare cash available to cost of purchase
         if cost > cash[0]["cash"]:
