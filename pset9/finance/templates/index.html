@@ -23,7 +23,7 @@
                     <td class="text-start">{{ name }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
                     <td class="text-end">{{ price | usd }}</td>
-                    <td class="text-end">{{ (shares * price) | usd }}</td>
+                    <td class="text-end">{{ (symbol['shares'] * price) | usd }}</td>
                 </tr>
         {% endfor %}
         </tbody>
