@@ -45,7 +45,8 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # TODO
+    # Lookup quote for each symbol in portfolio
+    portfolio = db.execute("SELECT symbol, shares)
 
 
 @app.route("/buy", methods=["GET", "POST"])
