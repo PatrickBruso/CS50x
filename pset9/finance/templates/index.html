@@ -19,8 +19,8 @@
                     <td class="text-start">{{ quote['symbol'] }}</td>
                     <td class="text-start">{{ quote['name'] }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
-                    <td class="text-end">{{ quote.latestPrice | usd }}</td>
-                    <td class="text-end">{{ shares * quote.latestPrice | usd }}</td>
+                    <td class="text-end">{{ quote['price'] | usd }}</td>
+                    <td class="text-end">{{ shares * quote['price'] | usd }}</td>
                 </tr>
 
         </tbody>
@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
-                <td class="border-0 w-bold text-end">{{ cash + (symbol['shares'] * quote.latestPrice) | usd }}</td>
+                <td class="border-0 w-bold text-end">{{ cash + (symbol['shares'] * quote['price']) | usd }}</td>
             </tr>
         </tfoot>
     </table>
