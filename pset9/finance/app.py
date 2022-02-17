@@ -55,9 +55,10 @@ def index():
     for symbol in portfolio:
         price = lookup(symbol['symbol'])['price']
         name = lookup(symbol['symbol'])['name']
+        total = cash + symbol['shares'] * price
 
     # Render template with values
-    return render_template("index.html", portfolio=portfolio, cash=cash, price=price, name=name)
+    return render_template("index.html", portfolio=portfolio, cash=cash, price=price, name=name, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
