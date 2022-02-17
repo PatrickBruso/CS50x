@@ -51,12 +51,20 @@ def index():
     # Obtain list of symbols and shares
     portfolio = db.execute("SELECT * FROM portfolio")
 
+    # Running total using cash plus each symbols share value
+    total = cash
+
+    # Check to make sure user has made a purchase
+    if not portfolio:
+        return apology("You have no purchases")
+
     # Obtain values for each symbol with lookup function
     for symbol in portfolio:
         price = lookup(symbol['symbol'])['price']
         name = lookup(symbol['symbol'])['name']
         share_total = symbol['shares'] * price
-        total = cash + share_total
+        symbol.update({'price': price, 'share_total': share_total})
+        total += share_total
 
     # Render template with values
     return render_template("index.html", portfolio=portfolio, cash=cash, price=price, name=name, total=total, share_total=share_total)
