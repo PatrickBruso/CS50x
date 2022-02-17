@@ -15,18 +15,19 @@
                 <th class="text-end">TOTAL</th>
             </tr>
         </thead>
-        {% for symbol in symbols %}
+
         <tbody>
+        {% for symbol in portfolio %}
                 <tr>
                     <td class="text-start">{{ symbol['symbol'] }}</td>
-                    <td class="text-start">{{ symbol['name'] }}</td>
+                    <td class="text-start">{{ lookup(symbol['symbol']) }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
-                    <td class="text-end">{{ symbol['price'] | usd }}</td>
+                    <td class="text-end">{{ lookup(symbol['price']) | usd }}</td>
                     <td class="text-end">{{ shares * symbol['price'] | usd }}</td>
                 </tr>
-
-        </tbody>
         {% endfor %}
+        </tbody>
+
         <tfoot>
             <tr>
                 <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
