@@ -92,7 +92,13 @@ def buy():
         db.execute("INSERT INTO trnasactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote.symbol, request.form.get("shares"), quote.price, datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
         # Update user's portfolio with purchase
-        # add portfolio table (look at website main page to see what to add)
+
+        # Obtain number of shares already purchased
+        shares = db.execute("SELECT quantity FROM portfolio WHERE symbol=?", quote.symbol)
+
+        # If no shares, add stock to portfolio and update shares amount
+        if not shares:
+            db.execute("INSERT INTO portfolio (symbol, shares) VALUES (?, ?)", quote.symbol, int(request.form.get("shares")))
 
 
 @app.route("/history")
