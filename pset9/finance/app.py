@@ -53,7 +53,7 @@ def index():
 def buy():
     """Buy shares of stock"""
 
-        # Make sure POST request
+    # Make sure POST request
     if request.method == "POST":
 
         # Check that symbol was entered
@@ -103,6 +103,13 @@ def buy():
         # If already own symbol, update shares amount with new purchase
         else:
             db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares+int(request.form.get("shares")), quote.symbol)
+
+        # Render template for index when finished
+        return render_template("index.html")
+
+    # Check for GET request and redirect
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
