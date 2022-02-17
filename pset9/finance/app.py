@@ -238,7 +238,7 @@ def register():
             return apology("username is already registered", 403)
 
         # Return index.html after registration
-        return render_template("index.html")
+        return redirect("/")
 
     # User reached route via GET redirect to register
     else:
