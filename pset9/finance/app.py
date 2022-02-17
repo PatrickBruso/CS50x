@@ -56,7 +56,7 @@ def index():
         quote = lookup(symbol['symbol'])
 
     # Render template with values
-    return render_template("index.html", symbols = portfolio, cash = cash)
+    return render_template("index.html", symbols=portfolio, cash=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])

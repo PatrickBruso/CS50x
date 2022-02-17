@@ -16,8 +16,8 @@
         {% for symbol in symbols %}
         <tbody>
                 <tr>
-                    <td class="text-start">{{ quote.symbol }}</td>
-                    <td class="text-start">{{ quote.companyName }}</td>
+                    <td class="text-start">{{ quote['symbol'] }}</td>
+                    <td class="text-start">{{ quote['name'] }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
                     <td class="text-end">{{ quote.latestPrice | usd }}</td>
                     <td class="text-end">{{ shares * quote.latestPrice | usd }}</td>
