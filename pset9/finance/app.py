@@ -49,7 +49,7 @@ def index():
     cash = obtain_cash[0]['cash']
 
     # Obtain list of symbols and shares
-    portfolio = db.execute("SELECT symbol, shares FROM portfolio WHERE user_id=?", session["user_id"])
+    portfolio = db.execute("SELECT * FROM portfolio WHERE user_id=?", session["user_id"])
 
     # Obtain values for each symbol with lookup function
     for symbol in portfolio:
