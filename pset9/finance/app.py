@@ -46,7 +46,7 @@ def index():
     """Show portfolio of stocks"""
 
     # Lookup quote for each symbol in portfolio
-    portfolio = db.execute("SELECT symbol, shares)
+    portfolio = db.execute("SELECT symbol, shares FROM portfolio WHERE user_id=?", session["user_id"])
 
 
 @app.route("/buy", methods=["GET", "POST"])
