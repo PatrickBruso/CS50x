@@ -44,6 +44,9 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    # Obtain user's cash
+    obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
+    cash = obtain_cash[0]['cash']
 
     # Lookup quote for each symbol in portfolio
     portfolio = db.execute("SELECT symbol, shares FROM portfolio WHERE user_id=?", session["user_id"])
