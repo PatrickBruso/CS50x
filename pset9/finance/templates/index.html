@@ -25,7 +25,7 @@
                     <td class="text-end">{{ price | usd }}</td>
                     <td class="text-end">{{ symbol['shares'] * price | usd }}</td>
                 </tr>
-        {% endfor %}
+
         </tbody>
 
         <tfoot>
@@ -38,5 +38,6 @@
                 <td class="border-0 w-bold text-end">{{ cash + symbol['shares'] * price | usd }}</td>
             </tr>
         </tfoot>
+        {% endfor %}
     </table>
 {% endblock %}
