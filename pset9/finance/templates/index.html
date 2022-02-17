@@ -18,7 +18,7 @@
         {% for symbol in symbols %}
         <tbody>
                 <tr>
-                    <td class="text-start">{{ quote['symbol'] }}</td>
+                    <td class="text-start">{{ symbol['symbol'] }}</td>
                     <td class="text-start">{{ quote['name'] }}</td>
                     <td class="text-end">{{ symbol['shares'] }}</td>
                     <td class="text-end">{{ quote['price'] | usd }}</td>
