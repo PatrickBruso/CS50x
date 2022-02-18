@@ -17,7 +17,7 @@
         </thead>
 
         <tbody>
-        {% for symbol in portfolio %}
+            {% for symbol in portfolio %}
                 <tr>
                     <td class="text-start">{{ symbol['symbol'] }}</td>
                     <td class="text-start">{{ name }}</td>
@@ -25,7 +25,7 @@
                     <td class="text-end">{{ price | usd }}</td>
                     <td class="text-end">{{ share_total | usd }}</td>
                 </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
 
         <tfoot>
