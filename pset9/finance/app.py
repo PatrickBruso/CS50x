@@ -256,4 +256,62 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+
+    # Make sure POST request
+    if request.method == "POST":
+
+        # Check that symbol was entered
+        if not request.form.get("symbol"):
+            return apology("must enter stock symbol")
+
+        # Obtain quote from lookup function
+        quote = lookup(request.form.get("symbol"))
+
+        # Check for valid quote
+        if quote is None:
+            return apology("symbol not valid")
+
+        # Check that shares number was entered
+        if not request.form.get("shares"):
+            return apology("must enter number of shares to buy")
+
+        # Check number of shares is positive integer
+        if int(request.form.get("shares")) < 1:
+            return apology("number of shares to buy must be positive")
+
+        # Obtain users current amount of cash available
+        cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        cash = cash_list[0]["cash"]
+
+        # Calculate cost of purchase
+        cost = int(request.form.get("shares")) * quote['price']
+
+        # Compare cash available to cost of purchase
+        if cost > cash:
+            return apology("not enough funds for purchase")
+
+        # Update user cash if transaction goes through
+        db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
+
+        # Add purchase to transactions table
+        db.execute("INSERT or IGNORE INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+
+        # Update user's portfolio with purchase
+
+        # Obtain number of shares already purchased
+        shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote['symbol'])
+
+        # If no shares, add stock to portfolio and update shares amount
+        if not shares:
+            db.execute("INSERT INTO portfolio (symbol, shares) VALUES (?, ?)", quote['symbol'], int(request.form.get("shares")))
+
+        # If already own symbol, update shares amount with new purchase
+        else:
+            db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares+int(request.form.get("shares")), quote['symbol'])
+
+        # Render template for index when finished
+        return redirect("/")
+
+    # Check for GET request and redirect
+    else:
+        return render_template("buy.html")
