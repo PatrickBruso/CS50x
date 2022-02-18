@@ -283,17 +283,13 @@ def sell():
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = cash_list[0]["cash"]
 
-        # Calculate cost of purchase
-        cost = int(request.form.get("shares")) * quote['price']
-
-        # Compare cash available to cost of purchase
-        if cost > cash:
-            return apology("not enough funds for purchase")
+        # Calculate proceeds of sale
+        proceeds = int(request.form.get("shares")) * quote['price']
 
         # Update user cash if transaction goes through
-        db.execute("UPDATE users SET cash=? WHERE id=?", cash-cost, session["user_id"])
+        db.execute("UPDATE users SET cash=? WHERE id=?", cash+proceeds, session["user_id"])
 
-        # Add purchase to transactions table
+        # Add sale to transactions table
         db.execute("INSERT or IGNORE INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
         # Update user's portfolio with purchase
