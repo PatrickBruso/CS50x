@@ -290,7 +290,7 @@ def sell():
         db.execute("UPDATE users SET cash=? WHERE id=?", cash+proceeds, session["user_id"])
 
         # Add sale to transactions table
-        db.execute("INSERT or IGNORE INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], request.form.get("shares"), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
+        db.execute("INSERT or IGNORE INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], -(request.form.get("shares")), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
 
         # Update user's portfolio with purchase
 
