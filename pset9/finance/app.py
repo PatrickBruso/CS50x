@@ -282,8 +282,16 @@ def sell():
         # Obtain number of shares already purchased
         shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote['symbol'])
 
+
+
+        # DOES THIS NEED TO BE shares[0]["shares"] to get actual integer?
+
+
+
+
         # Check that user isn't selling more shares than they own
-        if int(request.form.get("shares")) > shares
+        if int(request.form.get("shares")) > shares:
+            return apology("cannot sell more shares than currently own")
 
         # Obtain users current amount of cash available
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
@@ -297,10 +305,6 @@ def sell():
 
         # Add sale to transactions table
         db.execute("INSERT or IGNORE INTO transactions (user_id, symbol, shares, price, date) VALUES (?, ?, ?, ?, ?)", session["user_id"], quote['symbol'], -(request.form.get("shares")), quote['price'], datetime.now().strftime("%m/%d/%Y, %H:%M:%S"))
-
-        # Update user's portfolio with purchase
-
-
 
         # Update shares amount with sale
         db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares-int(request.form.get("shares")), quote['symbol'])
