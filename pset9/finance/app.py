@@ -307,4 +307,4 @@ def sell():
 
     # Check for GET request and redirect
     else:
-        return render_template("buy.html")
+        return render_template("sell.html")
