@@ -307,4 +307,6 @@ def sell():
 
     # Check for GET request and redirect
     else:
-        return render_template("sell.html")
+        # Get user portfolio to load drop-down menu
+        portfolio = db.execute("SELECT symbol FROM portfolio")
+        return render_template("sell.html". portfolio=portfolio)
