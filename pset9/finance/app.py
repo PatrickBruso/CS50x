@@ -279,6 +279,12 @@ def sell():
         if int(request.form.get("shares")) < 1:
             return apology("number of shares to sell must be positive")
 
+        # Obtain number of shares already purchased
+        shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote['symbol'])
+
+        # Check that user isn't selling more shares than they own
+        if int(request.form.get("shares")) > shares
+
         # Obtain users current amount of cash available
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         cash = cash_list[0]["cash"]
@@ -294,16 +300,10 @@ def sell():
 
         # Update user's portfolio with purchase
 
-        # Obtain number of shares already purchased
-        shares = db.execute("SELECT shares FROM portfolio WHERE symbol=?", quote['symbol'])
 
-        # If no shares, add stock to portfolio and update shares amount
-        if not shares:
-            db.execute("INSERT INTO portfolio (symbol, shares) VALUES (?, ?)", quote['symbol'], int(request.form.get("shares")))
 
-        # If already own symbol, update shares amount with new purchase
-        else:
-            db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares+int(request.form.get("shares")), quote['symbol'])
+        # Update shares amount with sale
+        db.execute("UPDATE portfolio SET shares=? WHERE symbol=?", shares-int(request.form.get("shares")), quote['symbol'])
 
         # Render template for index when finished
         return redirect("/")
