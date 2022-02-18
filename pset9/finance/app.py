@@ -277,7 +277,7 @@ def sell():
 
         # Check number of shares is positive integer
         if int(request.form.get("shares")) < 1:
-            return apology("number of shares to buy must be positive")
+            return apology("number of shares to sell must be positive")
 
         # Obtain users current amount of cash available
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
