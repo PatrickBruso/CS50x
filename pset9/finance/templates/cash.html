@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <p> You have {{ cash }} in cash available</p>
+    <p> You have {{ cash | usd }} in cash available</p>
 
     <form action="/cash" method="post">
         <div class="mb-3">
