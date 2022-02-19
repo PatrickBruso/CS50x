@@ -49,7 +49,8 @@ def index():
     portfolio = db.execute("SELECT * FROM portfolio")
 
     # Check to make sure user has made a purchase
-    #if not portfolio:
+    if not portfolio:
+        return redirect("/buy")
         #return apology("You have no purchases", 200)
 
     # Obtain user's cash
