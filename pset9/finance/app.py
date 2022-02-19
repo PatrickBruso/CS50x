@@ -50,9 +50,7 @@ def index():
 
     # Check to make sure user has made a purchase
     if not portfolio:
-        portfolio = None
-        return render_template("index.html", portfolio=portfolio)
-        #return apology("You have no purchases", 200)
+        return apology("You have no purchases, click buy", 200)
 
     # Obtain user's cash
     obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
