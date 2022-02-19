@@ -93,18 +93,17 @@ def buy():
             return apology("symbol not valid")
 
         # Check that shares number was entered
-        shares = int(request.form.get("shares"))
         if not request.form.get("shares"):
             return apology("must enter number of shares to buy")
-
-        # Check number of shares is positive integer
-        if shares < 1:
-            return apology("number of shares to buy must be positive")
 
         # Check if shares amount is fractional
         for char in request.form.get("shares"):
             if char == ".":
                 return apology("number of shares must be whole number")
+
+        # Check number of shares is positive integer
+        if int(request.form.get("shares")) < 1:
+            return apology("number of shares to buy must be positive")
 
         # Obtain users current amount of cash available
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
