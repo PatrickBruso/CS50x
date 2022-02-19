@@ -56,7 +56,7 @@ def index():
     total = cash
 
     # Check to make sure user has made a purchase
-    if not portfolio:
+    if portfolio is None
         return apology("You have no purchases")
 
     # Obtain values for each symbol with lookup function
