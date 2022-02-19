@@ -219,7 +219,7 @@ def quote():
 
         # Check for valid quote
         if quote is None:
-            return apology("symbol not valid", 403)
+            return apology("symbol not valid", 400)
 
         # Render quoted.html if valid quote
         else:
