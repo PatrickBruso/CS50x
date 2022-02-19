@@ -184,7 +184,7 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
-        return redirect("/buy")
+        return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -255,7 +255,7 @@ def register():
         # Store new user in db
         try:
             new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), pwhash)
-            return redirect('/buy')
+            return redirect('/')
         except:
             return apology("username is already registered", 400)
 
