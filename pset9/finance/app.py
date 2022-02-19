@@ -205,6 +205,7 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+
     # Check to make sure requested submitted via POST
     if request.method == "POST":
 
@@ -237,7 +238,7 @@ def register():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password and confirmation were submitted
         elif not request.form.get("password") or not request.form.get("confirmation"):
@@ -245,7 +246,7 @@ def register():
 
         # Ensure that password and confirmation match
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("password and confirmation do not match", 403)
+            return apology("password and confirmation do not match", 400)
 
         # Create hash of user's password to store in db
         pwhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
