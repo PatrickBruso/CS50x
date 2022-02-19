@@ -49,8 +49,8 @@ def index():
     portfolio = db.execute("SELECT * FROM portfolio")
 
     # Check to make sure user has made a purchase
-    if not portfolio:
-        return apology("You have no purchases", 200)
+    #if not portfolio:
+        #return apology("You have no purchases", 200)
 
     # Obtain user's cash
     obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
