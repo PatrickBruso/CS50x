@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block main %}
-    <p> a share of {{ quote['symbol'] }} costs {{ quote['price'] | usd }}</p>
+    <p> You have {{ cash | usd }} in cash available</p>
+
+    <form action="/cash" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cash" name="cash" placeholder="Amount" type="numeric">
+        </div>
+        <button class="btn btn-primary" type="submit">Add Cash</button>
+    </form>
 {% endblock %}
