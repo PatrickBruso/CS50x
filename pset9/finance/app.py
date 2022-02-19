@@ -103,7 +103,7 @@ def buy():
 
         # Check if shares amount is fractional
         if not shares.is_integer():
-            return apology("number of shares must be whole number)
+            return apology("number of shares must be whole number")
 
         # Obtain users current amount of cash available
         cash_list = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
