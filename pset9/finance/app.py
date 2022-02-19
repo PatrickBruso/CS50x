@@ -51,7 +51,6 @@ def index():
     # Check to make sure user has made a purchase
     if not portfolio:
         portfolio = {}
-        cash = 10000
         return render_template("index.html", portfolio=portfolio)
         #return apology("You have no purchases", 200)
 
