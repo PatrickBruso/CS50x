@@ -45,19 +45,19 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
+    # Obtain list of symbols and shares
+    portfolio = db.execute("SELECT * FROM portfolio")
+
+    # Check to make sure user has made a purchase
+    if not portfolio:
+        return apology("You have no purchases")
+
     # Obtain user's cash
     obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
     cash = obtain_cash[0]['cash']
 
-    # Obtain list of symbols and shares
-    portfolio = db.execute("SELECT * FROM portfolio")
-
     # Running total using cash plus each symbols share value
     total = cash
-
-    # Check to make sure user has made a purchase
-    if portfolio is None
-        return apology("You have no purchases")
 
     # Obtain values for each symbol with lookup function
     for symbol in portfolio:
