@@ -96,10 +96,11 @@ def buy():
         if not request.form.get("shares"):
             return apology("must enter number of shares to buy")
 
-        # Check if shares amount is fractional
+        # Check if shares amount is fractional or non-numerical
+        num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         for char in request.form.get("shares"):
-            if char == ".":
-                return apology("number of shares must be whole number")
+            if char not in num:
+                return apology("invalid share number")
 
         # Check number of shares is positive integer
         if int(request.form.get("shares")) < 1:
