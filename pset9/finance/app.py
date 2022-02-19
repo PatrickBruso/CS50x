@@ -255,7 +255,7 @@ def register():
         # Store new user in db
         try:
             new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), pwhash)
-            return redirect('/buy')
+            return redirect('/')
         except:
             return apology("username is already registered", 400)
 
