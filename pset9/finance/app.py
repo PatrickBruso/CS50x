@@ -100,7 +100,10 @@ def cash():
         # Update user cash if transaction goes through
         db.execute("UPDATE users SET cash=? WHERE id=?", curr_cash, session["user_id"])
 
-        return render_template("cash.html", cash=cash)
+        return render_template("cash.html", cash=curr_cash)
+
+    else:
+        return render_template("cash.html")
 
 
 @app.route("/buy", methods=["GET", "POST"])
