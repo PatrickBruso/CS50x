@@ -102,7 +102,7 @@ def buy():
             return apology("number of shares to buy must be positive")
 
         # Check if shares amount is fractional
-        if not shares.is_integer():
+        if isinstance(shares, int) == False
             return apology("number of shares must be whole number")
 
         # Obtain users current amount of cash available
