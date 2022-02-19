@@ -73,6 +73,12 @@ def index():
     return render_template("index.html", portfolio=portfolio, cash=cash, price=price, name=name, total=total, share_total=share_total)
 
 
+@app.route("/cash", methods=["GET", "POST"])
+@login_required
+def cash():
+    """ Update amount of cash available"""
+
+
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
