@@ -82,7 +82,7 @@ def cash():
     if request.method == "POST":
 
         # Grab cash entered from page
-        cash = reuqest.form.get("cash")
+        cash = request.form.get("cash")
 
         # Check that symbol was entered
         if not cash:
