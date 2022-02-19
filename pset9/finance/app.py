@@ -78,6 +78,13 @@ def index():
 def cash():
     """ Update amount of cash available"""
 
+    # Make sure POST request
+    if request.method == "POST":
+
+        # Check that symbol was entered
+        if not request.form.get("symbol"):
+            return apology("must enter stock symbol")
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
