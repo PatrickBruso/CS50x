@@ -97,7 +97,7 @@ def buy():
             return apology("must enter number of shares to buy")
 
         # Check if shares amount is fractional or non-numerical
-        num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         for char in request.form.get("shares"):
             if char not in num:
                 return apology("invalid share number")
