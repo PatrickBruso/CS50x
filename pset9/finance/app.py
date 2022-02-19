@@ -81,9 +81,26 @@ def cash():
     # Make sure POST request
     if request.method == "POST":
 
+        # Grab cash entered from page
+        cash = reuqest.form.get("cash")
+
         # Check that symbol was entered
-        if not request.form.get("symbol"):
-            return apology("must enter stock symbol")
+        if not cash:
+            return apology("must enter amount of cash to add")
+
+        # Obtain user's current cash
+        obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
+        curr_cash = obtain_cash[0]['cash']
+
+        if cash < 1:
+            return apology("must enter positive amount")
+
+        curr_cash += cash
+
+        # Update user cash if transaction goes through
+        db.execute("UPDATE users SET cash=? WHERE id=?", curr_cash, session["user_id"])
+
+        return render_template("cash.html", cash=cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
