@@ -94,7 +94,7 @@ def buy():
 
         # Check that shares number was entered
         shares = int(request.form.get("shares"))
-        if not shares:
+        if not request.form.get("shares"):
             return apology("must enter number of shares to buy")
 
         # Check number of shares is positive integer
@@ -102,7 +102,7 @@ def buy():
             return apology("number of shares to buy must be positive")
 
         # Check if shares amount is fractional
-        if isinstance(shares, int) == False
+        if isinstance(shares, int) == False:
             return apology("number of shares must be whole number")
 
         # Obtain users current amount of cash available
