@@ -82,7 +82,7 @@ def cash():
     if request.method == "POST":
 
         # Grab cash entered from page
-        cash = request.form.get("cash")
+        cash = int(request.form.get("cash"))
 
         # Check that symbol was entered
         if not cash:
@@ -103,7 +103,10 @@ def cash():
         return render_template("cash.html", cash=curr_cash)
 
     else:
-        return render_template("cash.html")
+        obtain_cash = db.execute("SELECT cash FROM users where id=?", session["user_id"])
+        curr_cash = obtain_cash[0]['cash']
+
+        return render_template("cash.html", cash=curr_cash)
 
 
 @app.route("/buy", methods=["GET", "POST"])
