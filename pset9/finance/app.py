@@ -252,20 +252,11 @@ def register():
         pwhash = generate_password_hash(request.form.get("password"), method='pbkdf2:sha256', salt_length=8)
 
         # Store new user in db
-        new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), pwhash)
-
-        #try:
-        #   new_user = db.execute...
-        #   return redirect('/')
-        #except:
-        #   return apology("username is already registered")
-
-        # Check if user is already in db
-        if not new_user:
+        try:
+            new_user = db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", request.form.get("username"), pwhash)
+            return redirect('/')
+        except:
             return apology("username is already registered", 400)
-
-        # Return index.html after registration
-        return redirect("/")
 
     # User reached route via GET redirect to register
     else:
