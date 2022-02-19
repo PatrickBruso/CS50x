@@ -50,14 +50,17 @@ def index():
     cash = obtain_cash[0]['cash']
 
     # Obtain list of symbols and shares
-    portfolio = db.execute("SELECT * FROM portfolio")
+    try:
+        portfolio = db.execute("SELECT * FROM portfolio")
+    except:
+        return apology("you have no purchases", 400)
 
     # Running total using cash plus each symbols share value
     total = cash
 
     # Check to make sure user has made a purchase
-    if not portfolio:
-        return apology("You have no purchases")
+    #if not portfolio:
+        #return apology("You have no purchases")
 
     # Obtain values for each symbol with lookup function
     for symbol in portfolio:
