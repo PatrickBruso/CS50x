@@ -13,7 +13,8 @@ def main(file_location, palette_name):
 def shrink(file_location):
     """
     Take an image and return a copy of that image that is reduced by 4 times.
-    Each 4x4 grid of pixels int he original image will be 1 pixel in the new image.
+    Each 4x4 grid of pixels in the original image will be 1 pixel in the new image
+    that is the average color from the 4x4 grid.
     """
 
     # Open image provided
