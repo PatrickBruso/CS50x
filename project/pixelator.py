@@ -20,5 +20,13 @@ def main(file_location, palette_name):
                 pixel_image.putpixel((x, y), new_pixel)
 
 
+def color_picker(pixel, palette):
+    """
+    Take a pixel and a target palette of colors and find the color in the
+    palette which is closet to the given pixel.  Return the palette pixel.
+    """
+
+
+
 if __name__ == "__main__":
     main("static/images/landscape.jpg", "ammo8.png")
