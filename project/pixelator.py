@@ -11,7 +11,10 @@ def main(file_location, palette_name):
         array = np.array(palette.convert('RGB'))
         colors = np.unique(array.reshape(-1, 3), axis=0)
 
-    print(colors[0])
+    r, g, b = colors[0]
+    print(r)
+    print(g)
+    print(b)
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
