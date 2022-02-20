@@ -26,7 +26,7 @@ def pixelate(image, palette):
     for new_pixel in image_copy:
         x = new_pixel.x
         y = new_pixel.y
-        old_pixel = image.get_pixel(x, y)
+        old_pixel = image.getpixel(x, y)
         palette_color = color_picker(old_pixel, palette)
         new_pixel.red = palette_color[0]
         new_pixel.green = palette_color[1]
