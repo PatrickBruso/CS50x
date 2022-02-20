@@ -1,4 +1,5 @@
 import math
+import numpy as np
 from PIL import Image
 
 def main(file_location, palette_name):
@@ -36,6 +37,11 @@ def color_picker(r, g, b, palette_name):
     with Image.open(f'static/palettes/{palette_name}') as palette:
         palette_list = palette.getpalette()
         print(palette_list)
+
+        # Obtain list of RGB values for palette
+        array = np.array(palette.convert('RGB'))
+        colors = np.unique(array.reshape(-1, 3), axis=0)
+        print(colors)
 
 
         """
