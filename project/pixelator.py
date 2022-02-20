@@ -15,6 +15,7 @@ def main(file_location, palette_name):
     print(r)
     print(g)
     print(b)
+    # use for color in colors to compare pixel RGB values to each color in palette
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
