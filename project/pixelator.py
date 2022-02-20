@@ -7,7 +7,7 @@ def main(file_location, palette_name):
 
     # Call shrink function on image and save result to copy
     image_copy = shrink(file_location)
-    image_copy = image_copy.save("shrunk.jpg")
+    image_copy.save("shrunk.jpg")
 
 
 def shrink(file_location):
