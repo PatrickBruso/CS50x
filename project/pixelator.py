@@ -6,8 +6,14 @@ def main(file_location, palette_name):
     palette = Image.open(f'static/palettes/{palette_name}')
 
     # Call shrink function on image and save result to copy
-    image_copy = shrink(file_location)
-    image_copy.save("shrunk.jpg")
+    #image_copy = shrink(file_location)
+    #image_copy.save("shrunk.jpg")
+
+    # Test of PIL's resize function
+    with Image.open(file_location) as image:
+        (width, height) = (image.width // 4, image.height // 4)
+        image_resized = image.resize((width, height))
+        image_resized.save("shrunk2.jpg")
 
 
 def shrink(file_location):
