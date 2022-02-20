@@ -26,8 +26,9 @@ def color_picker(r, g, b, palette_name):
     palette which is closet to the given pixel.  Return the palette pixel.
     """
 
-    # Empty list for palette values
+    # Empty lists for palette values and distances
     palette_list = []
+    distance_list = []
 
     # Obtain all RGB values for colors in chosen palette
     with Image.open(f'static/palettes/{palette_name}') as palette:
@@ -36,6 +37,8 @@ def color_picker(r, g, b, palette_name):
                 r, g, b = palette.getpixel((x, y))
                 rgb_list = [r, g, b]
                 palette_list.append(rgb_list)
+
+        
 
 
 
