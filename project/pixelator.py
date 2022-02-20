@@ -34,7 +34,9 @@ def color_picker(r, g, b, palette):
     # Obtain all RGB values for colors in chosen palette
     for x in range(palette.width):
         for y in range(palette.height):
-            
+            r, g, b = palette.getpixel((x, y))
+            rgb_list = [r, g, b]
+            palette_list.append(rgb_list)
 
 
 
