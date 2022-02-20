@@ -9,11 +9,13 @@ def main(file_location, palette_name):
     with Image.open(file_location) as image:
         image_resized = image.resize((image.width // 4, image.height // 4))
 
-        pixel_image = Image.new('RGB', (image.width, image.height))
+        width, height = image_resized.size
 
-        for x in range(image.width):
-            for y in range(image.height):
-                old_pixel = image.getpixel((x, y))
+        pixel_image = Image.new('RGB', (width, height))
+
+        for x in range(width):
+            for y in range(height):
+                old_pixel = image_resized.getpixel((x, y))
                 new_pixel = color_picker(old_pixel, palette)
                 pixel_image.putpixel((x, y), new_pixel)
 
