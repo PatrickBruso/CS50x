@@ -6,7 +6,7 @@ def main(file_location, palette_name):
 
     # Convert image to jpg? Test code with png?
 
-    # Obtain list of RGB values for palette
+    # Obtain list of RGB values for palette using numpy array
     with Image.open(f'static/palettes/{palette_name}') as palette:
         array = np.array(palette.convert('RGB'))
         colors = np.unique(array.reshape(-1, 3), axis=0)
