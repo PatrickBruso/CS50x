@@ -16,14 +16,16 @@ def main(file_location, palette_name):
         for x in range(width):
             for y in range(height):
                 r, g, b = image_resized.getpixel((x, y))
-                new_pixel = color_picker(r, g, b, palette_name)
-                pixel_image.putpixel((x, y), new_pixel)
+                #new_pixel =
+                color_picker(r, g, b, palette_name)
+                #pixel_image.putpixel((x, y), new_pixel)
 
 
 def color_picker(r, g, b, palette_name):
     """
     Take a pixel and a target palette of colors and find the color in the
-    palette which is closet to the given pixel.  Return the palette pixel.
+    palette which is closet to the given pixel.  Return the palette color
+    as an r, g, b value.
     """
 
     # Empty lists for palette values and distances
@@ -38,7 +40,7 @@ def color_picker(r, g, b, palette_name):
                 rgb_list = [r, g, b]
                 palette_list.append(rgb_list)
 
-        
+    print(palette_list)
 
 
 
