@@ -29,6 +29,8 @@ def pixelate(image, palette):
             new_pixel = color_picker(old_pixel, palette)
             image_copy.putpixel((x, y), new_pixel)
 
+    # Should just move this code to main function
+
     return image_copy
 
 
