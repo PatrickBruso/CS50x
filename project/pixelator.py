@@ -9,7 +9,8 @@ def main(file_location, palette_name):
     with Image.open(file_location) as image:
         (width, height) = (image.width // 4, image.height // 4)
         image_resized = image.resize((width, height))
-        image_resized.save("shrunk2.jpg")
+
+        pixel_image = pixelate(image_resized, palette)
 
 
 if __name__ == "__main__":
