@@ -6,14 +6,12 @@ def main(file_location, palette_name):
 
     # Convert image to jpg? Test code with png?
 
-    with Image.open(f'static/palettes/{palette_name}') as palette:
-    palette_list = palette.getpalette()
-    print(palette_list)
-
     # Obtain list of RGB values for palette
-    array = np.array(palette.convert('RGB'))
-    colors = np.unique(array.reshape(-1, 3), axis=0)
-    print(colors)
+    with Image.open(f'static/palettes/{palette_name}') as palette:
+        array = np.array(palette.convert('RGB'))
+        colors = np.unique(array.reshape(-1, 3), axis=0)
+
+    print(colors[0])
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
