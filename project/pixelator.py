@@ -5,6 +5,8 @@ def main(file_location, palette_name):
     # Recieve user inputs for palette choice
     palette = Image.open(f'static/palettes/{palette_name}')
 
+    # Convert image to jpg? Test code with png?
+
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
         image_resized = image.resize((image.width // 4, image.height // 4))
