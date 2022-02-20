@@ -15,7 +15,13 @@ def main(file_location, palette_name):
     print(r)
     print(g)
     print(b)
+
     # use for color in colors to compare pixel RGB values to each color in palette
+
+    """ What if we turned the palette and image into numpy arrays and then
+    did the calculation on each (for color in image_colors) to get image pixel RGB
+    and then compare that to each palette RGB to find closest.  Then you can just convert
+    the new array of pixels into a PIL image"""
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
