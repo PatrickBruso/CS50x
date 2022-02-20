@@ -11,6 +11,9 @@ def main(file_location, palette_name):
         array = np.array(palette.convert('RGB'))
         colors = np.unique(array.reshape(-1, 3), axis=0)
 
+    for color in colors:
+        print(color)
+
     r, g, b = colors[0]
     print(r)
     print(g)
