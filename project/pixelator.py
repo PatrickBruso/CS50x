@@ -46,3 +46,38 @@ def shrink(file_location):
 
     # Return copy of image
     return image_copy
+
+
+def get_grid_average(x, y, file_location):
+    """
+    Function that takes in an x and y coordinate for a pixel on an image and
+    returns the average of the colors of a range that is a 4x4 grid starting at that coordinate.
+    """
+
+    # Initialize empty lists for RGB values
+    red = []
+    green = []
+    blue = []
+
+    # Open and load image
+    image = Image.open(file_location)
+    pixels = image.load()
+
+    # Create counter for use in determining average pixel colors
+    counter = 0
+
+    # For each 4x4 grid obtain the pixel and then add the RGB values to lists
+    for i in range(x, x + 4):
+        for j in range(y, y + 4):
+            pixel_r, pixel_g, pixel_b = pixels[i, j]
+            red.append(pixel_r)
+            green.append(pixel_g)
+            blue.append(pixel_b)
+            counter += 1
+
+    # Get average of each RGB value and return that average as a pixel
+    return int(sum(red) / counter), int(sum(green) / counter), int(sum(blue) / counter)
+
+
+if __name__ == "__main__":
+    main("static/images/landscape.jpg", "ammo8.png")
