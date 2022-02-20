@@ -28,6 +28,14 @@ def color_picker(r, g, b, palette):
     palette which is closet to the given pixel.  Return the palette pixel.
     """
 
+    # Empty list for palette values
+    palette_list = []
+
+    # Obtain all RGB values for colors in chosen palette
+    for x in range(palette.width):
+        for y in range(palette.height):
+            
+
 
 
 if __name__ == "__main__":
