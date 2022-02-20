@@ -29,18 +29,23 @@ def color_picker(r, g, b, palette_name):
     """
 
     # Empty lists for palette values and distances
-    palette_list = []
-    distance_list = []
+    #palette_list = []
+    #distance_list = []
 
     # Obtain all RGB values for colors in chosen palette
     with Image.open(f'static/palettes/{palette_name}') as palette:
+        palette_list = palette.getpalette()
+        print(palette_list)
+
+
+        """
         for x in range(palette.width):
             for y in range(palette.height):
                 r, g, b = palette.getpixel((x, y))
                 rgb_list = [r, g, b]
                 palette_list.append(rgb_list)
 
-    print(palette_list)
+    print(palette_list)"""
 
 
 
