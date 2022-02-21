@@ -43,7 +43,8 @@ def main(file_location, palette_name):
         pixel_image_list.append(color_picker(palette_colors_list, pixel))
 
     # Create PIL image of new array of colors
-
+    pil_image = Image.fromarray(pixel_image_list)
+    pil_image.save("pixeltest.jpg")
 
 
 def color_picker(palette_list, pixel):
