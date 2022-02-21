@@ -12,7 +12,8 @@ def main(file_location, palette_name):
 
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
-        print(array)
+        for subarray in array:
+            print(subarray)
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
