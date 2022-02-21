@@ -30,11 +30,11 @@ def main(file_location, palette_name):
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
-        array = np.array(image.convert('RGB')) # Do I want array of original image or resized?  Probably resized?
+        array2 = np.array(image.convert('RGB')) # Do I want array of original image or resized?  Probably resized?
 
         image_resized = image.resize((image.width // 4, image.height // 4))
 
-        array2 = np.array(image_resized.convert('RGB'))
+        array3 = np.array(image_resized.convert('RGB'))
 
         width, height = image_resized.size
 
@@ -46,6 +46,8 @@ def main(file_location, palette_name):
                 r, g, b = image_resized.getpixel((x, y))
                 #new_pixel = color_picker(r, g, b, palette_name)
                 #pixel_image.putpixel((x, y), new_pixel)
+
+    array2 
 
 
 def color_picker(r, g, b, palette_name):
