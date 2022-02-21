@@ -1,6 +1,7 @@
 import math
 import time
 import numpy as np
+from numpy import asarray
 from PIL import Image
 
 def main(file_location, palette_name):
@@ -21,7 +22,7 @@ def main(file_location, palette_name):
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
         # Create array of palette colors
-        array = np.array(palette)
+        array = asarray(palette)
         print(array.shape)
         print(array)
 
