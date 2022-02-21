@@ -20,7 +20,7 @@ def main(file_location, palette_name):
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
         # Create array of palette colors
-        array = np.array(palette.convert('RGB'))
+        array = np.array(palette)
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
