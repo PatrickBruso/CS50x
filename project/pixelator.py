@@ -41,8 +41,8 @@ def main(file_location, palette_name):
     pixel_image_list = []
 
     # Append to list each RGB value using color_picker function
-    for pixel in image_colors_list:
-        color_picker(palette_colors_list, pixel)
+    # for pixel in image_colors_list:
+    color_picker(palette_colors_list, image_colors_list[0])
 
 
 def color_picker(palette_list, pixel):
@@ -67,10 +67,12 @@ def color_picker(palette_list, pixel):
         # Append distance value for that color to distance_list
         distance_list.append(distance)
 
+    print(distance_list)
     closest_color = min(distance_list)
+    print(closest_color)
     location = distance_list.index(closest_color)
 
-    return palette_list[location]
+    print(palette_list[location])
 
 
 if __name__ == "__main__":
