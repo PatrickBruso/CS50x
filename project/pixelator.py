@@ -34,6 +34,7 @@ def main(file_location, palette_name):
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
     print(image_colors_list)
+    print(type(image_colors_list))
 
     # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
     # print(len(test_small)) # 16960
@@ -48,7 +49,7 @@ def main(file_location, palette_name):
         new_pixel = color_picker(palette_colors_list, pixel)
         pixel = new_pixel
 
-    print(image_colors_list)
+    #print(image_colors_list)
 
     """ Possible solution: Create an empty numpy array of the same size as image_colors_list,
         then append each array you receive from calling color_picker to that empty array. That
