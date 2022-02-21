@@ -48,7 +48,10 @@ def main(file_location, palette_name):
     pixel_array = np.array(pixel_image_list)
 
     # Create PIL image of new array of colors
-    pil_image = Image.fromarray(pixel_array)
+    pixel_image = Image.fromarray(pixel_array)
+
+    # Resize new pixel image
+    pixel_image_resized = 
 
     # Save new image
     pil_image.save("pixeltest.jpg")
