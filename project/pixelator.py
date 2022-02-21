@@ -4,7 +4,8 @@ from PIL import Image
 
 def main(file_location, palette_name):
 
-    """ Should I create a function for reading in an image location and returning a reshaped array of colors?"""
+    """ Should I create a function for reading in an image location and returning a reshaped array of colors?
+    Maybe not because I need to resize the image.  If so, I'll have to resize the image first before I obtain the array"""
 
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
