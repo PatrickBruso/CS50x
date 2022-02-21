@@ -27,6 +27,7 @@ def main(file_location, palette_name):
 
         # Create array of resized image
         resized_array = np.array(image_resized.convert('RGB'))
+        print(resized_array)
 
     # Reshape array into iterable list of colors
     test_big = array2.reshape(-1, 3)
@@ -45,10 +46,10 @@ def main(file_location, palette_name):
     # Reshape array to numpy array
 
     # Create PIL image of new array of colors
-    pil_image = Image.fromarray(pixel_image_list)
+    #pil_image = Image.fromarray(pixel_image_list)
 
     # Save new image
-    pil_image.save("pixeltest.jpg")
+    #pil_image.save("pixeltest.jpg")
 
 
 def color_picker(palette_list, pixel):
