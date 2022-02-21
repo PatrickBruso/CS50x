@@ -87,7 +87,6 @@ def color_picker(palette_list, pixel):
 
         # Determine the distance value for each color in pallete
         distance = int(math.sqrt((r - color[0]) ** 2 + (g - color[1]) ** 2 + (b - color[2]) ** 2))
-        print(distance)
 
         # Append distance value for that color to distance_list
         distance_list.append(distance)
