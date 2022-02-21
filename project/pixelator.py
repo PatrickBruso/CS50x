@@ -44,6 +44,10 @@ def main(file_location, palette_name):
     for pixel in image_colors_list:
         pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
 
+    """ Possible solution: Create an empty numpy array of the same size as image_colors_list,
+        then append each array you receive from calling color_picker to that empty array. That
+        way you alreayd have a numpy array to call fromarray on"""
+
     # Convert pixel_image_list to array
     pixel_array = np.array(pixel_image_list)
 
