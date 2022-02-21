@@ -21,6 +21,7 @@ def main(file_location, palette_name):
 
         # Array of larger sized image to see difference when not shrunken
         array2 = np.array(image.convert('RGB'))
+        print(array2.shape)
 
         # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
@@ -62,7 +63,7 @@ def main(file_location, palette_name):
     pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    pixel_image_resized.save("pixeltest.jpg")
+    # pixel_image_resized.save("pixeltest.jpg")
     """
     This isn't working right.  Maybe try without shrinking the image first to see what that produces.
     """
