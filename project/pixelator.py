@@ -55,10 +55,6 @@ def main(file_location, palette_name):
         # increment counter for next value
         counter += 1
 
-    # Convert pixel_image_list to array
-    #pixel_array = np.array(pixel_image_list)
-    print(type(pixel_image_list))
-
     # Create PIL image of new array of colors
     pixel_image = Image.fromarray(pixel_image_list)
 
@@ -67,6 +63,9 @@ def main(file_location, palette_name):
 
     # Save new image
     pixel_image_resized.save("pixeltest.jpg")
+    """
+    This isn't working right.  Maybe try without shrinking the image first to see what that produces.
+    """
 
 
 def color_picker(palette_list, pixel):
