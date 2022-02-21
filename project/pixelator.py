@@ -47,11 +47,11 @@ def main(file_location, palette_name):
                 #new_pixel = color_picker(r, g, b, palette_name)
                 #pixel_image.putpixel((x, y), new_pixel)
 
-    test_big = array2.reshape(-1, 3)
+    test_big = np.unique(array2.reshape(-1, 3), axis=0)
     test_small = array3.reshape(-1, 3)
 
-    print(len(test_big)) # 272640
-    print(len(test_small)) # 16960 
+    print(len(test_big)) # 272640 or 98270 with unique (don't use unique)
+    print(len(test_small)) # 16960
 
 
 def color_picker(r, g, b, palette_name):
