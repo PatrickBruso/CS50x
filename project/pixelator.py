@@ -4,56 +4,47 @@ from PIL import Image
 
 def main(file_location, palette_name):
 
-    # Convert image to jpg? Test code with png?
-
-    # Obtain list of RGB values for palette using numpy array
+    # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
+        # Create array of palette colors
         array = np.array(palette.convert('RGB'))
 
-    test = array.reshape(-1, 3) # Same output as above but not unique
+    # Reshape array into usable list of colors
+    palette_colors_list = array.reshape(-1, 3)
 
     for list in test:
         print(list)
 
-    r, g, b = colors[0]
+    r, g, b = palette_colors_list[0]
     print(r)
     print(g)
     print(b)
 
-    # use for color in colors to compare pixel RGB values to each color in palette
-
-    """ What if we turned the palette and image into numpy arrays and then
-    did the calculation on each (for color in image_colors) to get image pixel RGB
-    and then compare that to each palette RGB to find closest.  Then you can just convert
-    the new array of pixels into a PIL image"""
-
-    # Resize image to 1/4 of original
+    # Open image choice
     with Image.open(file_location) as image:
-        array2 = np.array(image.convert('RGB')) # Do I want array of original image or resized?  Probably resized?
+        array2 = np.array(image.convert('RGB')) # Array of larger sized image to see difference when not shrunken
 
+        # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
 
-        array3 = np.array(image_resized.convert('RGB'))
+        # Create array of resized image
+        resized_array = np.array(image_resized.convert('RGB'))
 
-        width, height = image_resized.size
+    # Reshape array into iterable list of colors
+    test_big = array2.reshape(-1, 3)
+    image_colors_list = resized_array.reshape(-1, 3)
 
-        # might be able to move this out of with loop
-        pixel_image = Image.new('RGB', (width, height))
-
-        for x in range(width):
-            for y in range(height):
-                r, g, b = image_resized.getpixel((x, y))
-                #new_pixel = color_picker(r, g, b, palette_name)
-                #pixel_image.putpixel((x, y), new_pixel)
-
-    test_big = np.unique(array2.reshape(-1, 3), axis=0)
-    test_small = array3.reshape(-1, 3)
-
-    print(len(test_big)) # 272640 or 98270 with unique (don't use unique)
+    print(len(test_big)) # 272640
     print(len(test_small)) # 16960
 
+    # Create empty list for array of pixelized image's colors
+    pixel_image_list = []
 
-def color_picker(r, g, b, palette_name):
+    # Append to list each RGB value using color_picker function
+    pixel_image_list.append(color_picker(palette_colors_list, image_colors_list))
+
+
+def color_picker(palette_list, image_list):
     """
     Take a pixel and a target palette of colors and find the color in the
     palette which is closet to the given pixel.  Return the palette color
