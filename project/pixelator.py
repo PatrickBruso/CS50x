@@ -4,6 +4,8 @@ from PIL import Image
 
 def main(file_location, palette_name):
 
+    """ Should I create a function for reading in an image location and returning a reshaped array of colors?"""
+
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
         # Create array of palette colors
