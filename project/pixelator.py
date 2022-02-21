@@ -21,7 +21,7 @@ def main(file_location, palette_name):
 
         # Array of larger sized image to see difference when not shrunken
         array2 = np.array(image.convert('RGB'))
-        print(array2.shape)
+        print(f"original image array shape is: {array2.shape}")
 
         # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
@@ -30,16 +30,18 @@ def main(file_location, palette_name):
 
         # Create array of resized image
         resized_array = np.array(image_resized.convert('RGB'))
+        print(f"original resized array shape is: {resized_array.shape}")
 
     # Reshape array into iterable list of colors
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
+    print(f"reshaped resized array shape is: {image_colors_list.shape}")
 
     # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
     # print(len(test_small)) # 16960
 
     # Create empty list for array of pixelized image's colors
-    pixel_image_list = np.empty_like(image_colors_list)
+    pixel_image_array = np.empty_like(image_colors_list)
 
     # Create counter for updating pixel_image_list array with new pixel
     counter = 0
@@ -51,13 +53,15 @@ def main(file_location, palette_name):
         new_pixel = color_picker(palette_colors_list, pixel)
 
         # Use counter to update pixel_image_list with new pixel value
-        pixel_image_list[counter] = new_pixel
+        pixel_image_array[counter] = new_pixel
 
         # increment counter for next value
         counter += 1
 
+    print(f"pixel image shape is: {pixel_image_array.shape}")
+
     # Create PIL image of new array of colors
-    pixel_image = Image.fromarray(pixel_image_list)
+    pixel_image = Image.fromarray(pixel_image_array)
 
     # Resize new pixel image
     pixel_image_resized = pixel_image.resize((width * 4, height * 4))
