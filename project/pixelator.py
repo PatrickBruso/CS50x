@@ -59,6 +59,8 @@ def main(file_location, palette_name):
         counter += 1
 
     print(f"pixel image shape is: {pixel_image_array.shape}")
+    pixel_image_array.reshape(resized_array.shape)
+    print(f"pixel image new shape is: {pixel_image_array.shape}")
 
     # Create PIL image of new array of colors
     pixel_image = Image.fromarray(pixel_image_array)
