@@ -13,13 +13,13 @@ def main(file_location, palette_name):
 
     test = array.reshape(-1, 3) # Same output as above but not unique
 
-    for list in test:
-        print(list)
+    #for list in test:
+        #print(list)
 
     r, g, b = colors[0]
-    print(r)
-    print(g)
-    print(b)
+    #print(r)
+    #print(g)
+    #print(b)
 
     # use for color in colors to compare pixel RGB values to each color in palette
 
@@ -47,7 +47,11 @@ def main(file_location, palette_name):
                 #new_pixel = color_picker(r, g, b, palette_name)
                 #pixel_image.putpixel((x, y), new_pixel)
 
-    array2 
+    test_big = array2.reshape(-1, 3)
+    test_small = array3.reshape(-1, 3)
+
+    for list in test_big:
+        print(list)
 
 
 def color_picker(r, g, b, palette_name):
