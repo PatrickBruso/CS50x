@@ -45,7 +45,6 @@ def main(file_location, palette_name):
         pixel_image_list.append(color_picker(palette_colors_list, pixel))
 
     # Reshape array to numpy array
-    pixel_image_list.reshape(-1, width)
     print(pixel_image_list)
 
     # Create PIL image of new array of colors
