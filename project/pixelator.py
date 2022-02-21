@@ -12,6 +12,7 @@ def main(file_location, palette_name):
 
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
+        print(array)
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
@@ -27,7 +28,6 @@ def main(file_location, palette_name):
 
         # Create array of resized image
         resized_array = np.array(image_resized.convert('RGB'))
-        print(resized_array)
 
     # Reshape array into iterable list of colors
     test_big = array2.reshape(-1, 3)
