@@ -59,7 +59,7 @@ def main(file_location, palette_name):
         counter += 1
 
     print(f"pixel image shape is: {pixel_image_array.shape}")
-    pixel_image_array = np.reshape(resized_array.shape)
+    pixel_image_array = np.reshape(pixel_image_array, resized_array.shape)
     print(f"pixel image new shape is: {pixel_image_array.shape}")
 
     # Create PIL image of new array of colors
@@ -69,7 +69,7 @@ def main(file_location, palette_name):
     pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    # pixel_image_resized.save("pixeltest.jpg")
+    pixel_image_resized.save("pixeltest.jpg")
     """
     This isn't working right.  Maybe try without shrinking the image first to see what that produces.
     """
