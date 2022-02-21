@@ -32,7 +32,7 @@ def main(file_location, palette_name):
         array2 = np.array(image.convert('RGB'))
 
         # Resize image to 1/4 of original
-        image_resized = image.resize((image.width // 4, image.height // 4))
+        image_resized = image.resize((image.width // 2, image.height // 2))
 
         width, height = image_resized.size
 
@@ -68,7 +68,7 @@ def main(file_location, palette_name):
     pixel_image = Image.fromarray(pixel_image_array)
 
     # Resize new pixel image
-    pixel_image_resized = pixel_image.resize((width * 4, height * 4))
+    pixel_image_resized = pixel_image.resize((width * 2, height * 2))
 
     # Save new image
     pixel_image_resized.save("pixeltest.jpg")
