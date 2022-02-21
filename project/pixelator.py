@@ -50,8 +50,8 @@ def main(file_location, palette_name):
     test_big = array2.reshape(-1, 3)
     test_small = array3.reshape(-1, 3)
 
-    for list in test_big:
-        print(list)
+    print(len(test_big)) # 272640
+    print(len(test_small)) # 16960 
 
 
 def color_picker(r, g, b, palette_name):
