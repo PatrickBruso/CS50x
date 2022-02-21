@@ -42,8 +42,12 @@ def main(file_location, palette_name):
     for pixel in image_colors_list:
         pixel_image_list.append(color_picker(palette_colors_list, pixel))
 
+    # Reshape array to numpy array
+
     # Create PIL image of new array of colors
     pil_image = Image.fromarray(pixel_image_list)
+
+    # Save new image
     pil_image.save("pixeltest.jpg")
 
 
