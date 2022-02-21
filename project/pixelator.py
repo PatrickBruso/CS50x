@@ -34,7 +34,7 @@ def main(file_location, palette_name):
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
 
-    # print(len(test_big)) # 272640
+    # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
     # print(len(test_small)) # 16960
 
     # Create empty list for array of pixelized image's colors
