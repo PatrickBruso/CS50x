@@ -10,7 +10,8 @@ def main(file_location, palette_name):
     with Image.open(f'static/palettes/{palette_name}') as palette:
         array = np.array(palette.convert('RGB'))
         colors = np.unique(array.reshape(-1, 3), axis=0) # Not sure i want to use unique (that may remove duplicate colors)
-        test = array.reshape(-1, 3) # Same output as above but not unique
+
+    test = array.reshape(-1, 3) # Same output as above but not unique
 
     for list in test:
         print(list)
@@ -29,10 +30,15 @@ def main(file_location, palette_name):
 
     # Resize image to 1/4 of original
     with Image.open(file_location) as image:
+        array = np.array(image.convert('RGB')) # Do I want array of original image or resized?  Probably resized?
+
         image_resized = image.resize((image.width // 4, image.height // 4))
+
+        array2 = np.array(image_resized.convert('RGB'))
 
         width, height = image_resized.size
 
+        # might be able to move this out of with loop
         pixel_image = Image.new('RGB', (width, height))
 
         for x in range(width):
