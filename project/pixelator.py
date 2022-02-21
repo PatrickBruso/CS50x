@@ -42,15 +42,17 @@ def main(file_location, palette_name):
     pixel_image_list = np.empty_like(image_colors_list)
     print(pixel_image_list)
     """Should this instead be initialized as an empty numpy array of shape matching image_colors_list?"""
+    counter = 0
 
     # Append to list each RGB value using color_picker function
     for pixel in image_colors_list:
         # pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
         # What if we did the following instead of line 45? to just update the values
         new_pixel = color_picker(palette_colors_list, pixel)
-        #pixel_image_list.append(new_pixel)
+        pixel_image_list[counter] = new_pixel
+        counter += 1
 
-    #print(pixel_image_list)
+    print(pixel_image_list)
 
     """ Possible solution: Create an empty numpy array of the same size as image_colors_list,
         then append each array you receive from calling color_picker to that empty array. That
