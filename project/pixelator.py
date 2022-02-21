@@ -42,7 +42,7 @@ def main(file_location, palette_name):
 
     # Append to list each RGB value using color_picker function
     for pixel in image_colors_list:
-        pixel_image_list.append(color_picker(palette_colors_list, pixel))
+        pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
 
     # Convert pixel_image_list to array
     pixel_array = np.array(pixel_image_list)
@@ -51,10 +51,10 @@ def main(file_location, palette_name):
     pixel_image = Image.fromarray(pixel_array)
 
     # Resize new pixel image
-    pixel_image_resized = 
+    pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    pil_image.save("pixeltest.jpg")
+    pixel_image_resized.save("pixeltest.jpg")
 
 
 def color_picker(palette_list, pixel):
