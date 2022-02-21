@@ -35,16 +35,16 @@ def main(file_location, palette_name):
     image_colors_list = resized_array.reshape(-1, 3)
 
     # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
-    # print(len(test_small)) # 16960
+    # print(len(test_small)) # 16960  #STOP!!!
 
     # Create empty list for array of pixelized image's colors
-    pixel_image_list = np.empty_like(image_colors_list)
+    pixel_image_list = np.empty_like(test_big)
 
     # Create counter for updating pixel_image_list array with new pixel
     counter = 0
 
     # Append to list each RGB value using color_picker function
-    for pixel in image_colors_list:
+    for pixel in test_big:
 
         # obtain the new pixel value for that pixel and assign to new_pixel
         new_pixel = color_picker(palette_colors_list, pixel)
@@ -59,10 +59,10 @@ def main(file_location, palette_name):
     pixel_image = Image.fromarray(pixel_image_list)
 
     # Resize new pixel image
-    pixel_image_resized = pixel_image.resize((width * 4, height * 4))
+    #pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    pixel_image_resized.save("pixeltest.jpg")
+    pixel_image.save("pixeltest.jpg")
     """
     This isn't working right.  Maybe try without shrinking the image first to see what that produces.
     """
