@@ -43,6 +43,8 @@ def main(file_location, palette_name):
     # Append to list each RGB value using color_picker function
     for pixel in image_colors_list:
         pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
+        # What if we did the following instead of line 45? to just update the values
+        # pixel = color_picker(palette_colors_list, pixel)
 
     """ Possible solution: Create an empty numpy array of the same size as image_colors_list,
         then append each array you receive from calling color_picker to that empty array. That
