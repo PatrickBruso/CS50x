@@ -22,7 +22,7 @@ def main(file_location, palette_name):
         width, height = palette.size
         for x in range(width):
             for y in range(height):
-                print(getpixel(x, y))
+                print(palette.getpixel((x, y)))
 
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
