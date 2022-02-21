@@ -45,7 +45,8 @@ def main(file_location, palette_name):
     for pixel in image_colors_list:
         # pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
         # What if we did the following instead of line 45? to just update the values
-        pixel = color_picker(palette_colors_list, pixel)
+        new_pixel = color_picker(palette_colors_list, pixel)
+        pixel = new_pixel
 
     print(image_colors_list)
 
