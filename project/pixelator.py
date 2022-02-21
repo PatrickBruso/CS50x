@@ -21,7 +21,6 @@ def main(file_location, palette_name):
 
         # Array of larger sized image to see difference when not shrunken
         array2 = np.array(image.convert('RGB'))
-        print(f"original image array shape is: {array2.shape}")
 
         # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
@@ -30,15 +29,10 @@ def main(file_location, palette_name):
 
         # Create array of resized image
         resized_array = np.array(image_resized.convert('RGB'))
-        print(f"original resized array shape is: {resized_array.shape}")
 
     # Reshape array into iterable list of colors
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
-    print(f"reshaped resized array shape is: {image_colors_list.shape}")
-
-    # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
-    # print(len(test_small)) # 16960
 
     # Create empty list for array of pixelized image's colors
     pixel_image_array = np.empty_like(image_colors_list)
@@ -58,11 +52,10 @@ def main(file_location, palette_name):
         # increment counter for next value
         counter += 1
 
-    print(f"pixel image shape is: {pixel_image_array.shape}")
+    # Reshape pixel_image_array to match the original array shape of the resized image
     pixel_image_array = np.reshape(pixel_image_array, resized_array.shape)
-    print(f"pixel image new shape is: {pixel_image_array.shape}")
 
-    # Create PIL image of new array of colors
+    # Create PIL image of pixelated array of colors
     pixel_image = Image.fromarray(pixel_image_array)
 
     # Resize new pixel image
@@ -70,8 +63,9 @@ def main(file_location, palette_name):
 
     # Save new image
     pixel_image_resized.save("pixeltest.jpg")
+
     """
-    This isn't working right.  Maybe try without shrinking the image first to see what that produces.
+    Need to fix the overflow error
     """
 
 
