@@ -34,13 +34,13 @@ def main(file_location, palette_name):
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
     print(image_colors_list)
-    print(image_colors_list.shape)
 
     # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
     # print(len(test_small)) # 16960
 
     # Create empty list for array of pixelized image's colors
-    pixel_image_list = np.empty(image_colors_list.shape)
+    pixel_image_list = np.empty_like(image_colors_list)
+    print(pixel_image_list)
     """Should this instead be initialized as an empty numpy array of shape matching image_colors_list?"""
 
     # Append to list each RGB value using color_picker function
@@ -48,7 +48,7 @@ def main(file_location, palette_name):
         # pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
         # What if we did the following instead of line 45? to just update the values
         new_pixel = color_picker(palette_colors_list, pixel)
-        pixel_image_list.append(new_pixel)
+        #pixel_image_list.append(new_pixel)
 
     #print(pixel_image_list)
 
