@@ -40,7 +40,7 @@ def main(file_location, palette_name):
     # print(len(test_small)) # 16960
 
     # Create empty list for array of pixelized image's colors
-    pixel_image_list = []
+    pixel_image_list = np.empty(image_colors_list.shape)
     """Should this instead be initialized as an empty numpy array of shape matching image_colors_list?"""
 
     # Append to list each RGB value using color_picker function
