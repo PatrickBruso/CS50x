@@ -1,4 +1,5 @@
 import math
+import time
 import numpy as np
 from PIL import Image
 
@@ -106,4 +107,6 @@ def color_picker(palette_list, pixel):
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     main("static/images/landscape.jpg", "ammo8.png")
+    print("------- %s seconds -------" % (time.time() - start_time))
