@@ -19,12 +19,18 @@ def main(file_location, palette_name):
 
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
+        width, height = palette.size
+        for x in range(width):
+            for y in range(height):
+                print(getpixel(x, y))
 
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
+    for pixel in palette_colors_list:
+        print(pixel)
 
     # Open image choice
     with Image.open(file_location) as image:
