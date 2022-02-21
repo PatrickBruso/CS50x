@@ -8,11 +8,7 @@ def main(file_location, palette_name):
     Maybe not because I need to resize the image.  If so, I'll have to resize the image first before I obtain the array"""
 
     """
-    To do:
-    Compare output file to output of code in place final project for same picture and palette
-    This one seems to look considerably worse
-    Might need to recode without converting to numpy array
-    Can still try running program without resizing image
+    This version runs the program without any resizing.
     """
 
     # Open palette choice
