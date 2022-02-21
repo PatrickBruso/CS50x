@@ -54,6 +54,7 @@ def color_picker(palette_list, pixel):
 
     # Grab RGB values for target pixel
     r, g, b = pixel
+    print(palette_list)
 
     # Create empty list for distance values
     distance_list = []
