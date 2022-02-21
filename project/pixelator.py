@@ -9,17 +9,16 @@ def main(file_location, palette_name):
     # Obtain list of RGB values for palette using numpy array
     with Image.open(f'static/palettes/{palette_name}') as palette:
         array = np.array(palette.convert('RGB'))
-        colors = np.unique(array.reshape(-1, 3), axis=0) # Not sure i want to use unique (that may remove duplicate colors)
 
     test = array.reshape(-1, 3) # Same output as above but not unique
 
-    #for list in test:
-        #print(list)
+    for list in test:
+        print(list)
 
     r, g, b = colors[0]
-    #print(r)
-    #print(g)
-    #print(b)
+    print(r)
+    print(g)
+    print(b)
 
     # use for color in colors to compare pixel RGB values to each color in palette
 
