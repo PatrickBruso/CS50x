@@ -7,6 +7,14 @@ def main(file_location, palette_name):
     """ Should I create a function for reading in an image location and returning a reshaped array of colors?
     Maybe not because I need to resize the image.  If so, I'll have to resize the image first before I obtain the array"""
 
+    """
+    To do:
+    Compare output file to output of code in place final project for same picture and palette
+    This one seems to look considerably worse
+    Might need to recode without converting to numpy array
+    Can still try running program without resizing image
+    """
+
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
@@ -63,10 +71,6 @@ def main(file_location, palette_name):
 
     # Save new image
     pixel_image_resized.save("pixeltest.jpg")
-
-    """
-    Need to fix the overflow error
-    """
 
 
 def color_picker(palette_list, pixel):
