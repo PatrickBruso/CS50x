@@ -51,9 +51,12 @@ def color_picker(palette_list, pixel):
     palette which is closet to the given pixel.  Return the palette color
     as an r, g, b value.
     """
-
-    print(palette_list)
-    print(pixel)
+    r, g, b = pixel
+    print(r)
+    print(g)
+    print(b)
+    #for color in palette_list:
+        #distance = int(math.sqrt((pixel[0])))
 
 
 
