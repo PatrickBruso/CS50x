@@ -9,20 +9,18 @@ def main(file_location, palette_name):
 
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
+
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
 
-    r, g, b = palette_colors_list[0]
-    #print(r)
-    #print(g)
-    #print(b)
-
     # Open image choice
     with Image.open(file_location) as image:
-        array2 = np.array(image.convert('RGB')) # Array of larger sized image to see difference when not shrunken
+
+        # Array of larger sized image to see difference when not shrunken
+        array2 = np.array(image.convert('RGB'))
 
         # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
@@ -41,8 +39,11 @@ def main(file_location, palette_name):
     pixel_image_list = []
 
     # Append to list each RGB value using color_picker function
-    # for pixel in image_colors_list:
-    color_picker(palette_colors_list, image_colors_list[0])
+    for pixel in image_colors_list:
+        pixel_image_list.append(color_picker(palette_colors_list, pixel))
+
+    # Create PIL image of new array of colors
+
 
 
 def color_picker(palette_list, pixel):
@@ -54,7 +55,6 @@ def color_picker(palette_list, pixel):
 
     # Grab RGB values for target pixel
     r, g, b = pixel
-    print(palette_list)
 
     # Create empty list for distance values
     distance_list = []
@@ -68,12 +68,14 @@ def color_picker(palette_list, pixel):
         # Append distance value for that color to distance_list
         distance_list.append(distance)
 
-    print(distance_list)
+    # Find the smallest value in the distance list
     closest_color = min(distance_list)
-    print(closest_color)
+
+    # Obtain the index location of the smallest distance value
     location = distance_list.index(closest_color)
 
-    print(palette_list[location])
+    # Return the color in pallete_list that has smallest distance from target pixel
+    return palette_list[location]
 
 
 if __name__ == "__main__":
