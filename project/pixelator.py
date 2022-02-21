@@ -44,14 +44,14 @@ def main(file_location, palette_name):
     for pixel in image_colors_list:
         pixel_image_list.append(color_picker(palette_colors_list, pixel))
 
-    # Reshape array to numpy array
-    print(pixel_image_list)
+    # Convert pixel_image_list to array
+    pixel_array = np.array(pixel_image_list)
 
     # Create PIL image of new array of colors
-    #pil_image = Image.fromarray(pixel_image_list)
+    pil_image = Image.fromarray(pixel_array)
 
     # Save new image
-    #pil_image.save("pixeltest.jpg")
+    pil_image.save("pixeltest.jpg")
 
 
 def color_picker(palette_list, pixel):
