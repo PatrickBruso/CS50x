@@ -33,6 +33,7 @@ def main(file_location, palette_name):
     # Reshape array into iterable list of colors
     test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
+    print(image_colors_list)
 
     # print(len(test_big)) # 272640 test by changing line 44 to pixel in test_big
     # print(len(test_small)) # 16960
@@ -42,25 +43,27 @@ def main(file_location, palette_name):
 
     # Append to list each RGB value using color_picker function
     for pixel in image_colors_list:
-        pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
+        # pixel_image_list.append(color_picker(palette_colors_list, pixel)) # This is where the error is happening.
         # What if we did the following instead of line 45? to just update the values
-        # pixel = color_picker(palette_colors_list, pixel)
+        pixel = color_picker(palette_colors_list, pixel)
+
+    print(image_colors_list)
 
     """ Possible solution: Create an empty numpy array of the same size as image_colors_list,
         then append each array you receive from calling color_picker to that empty array. That
         way you alreayd have a numpy array to call fromarray on"""
 
     # Convert pixel_image_list to array
-    pixel_array = np.array(pixel_image_list)
+    #pixel_array = np.array(pixel_image_list)
 
     # Create PIL image of new array of colors
-    pixel_image = Image.fromarray(pixel_array)
+    #pixel_image = Image.fromarray(pixel_array)
 
     # Resize new pixel image
-    pixel_image_resized = pixel_image.resize((width * 4, height * 4))
+    #pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    pixel_image_resized.save("pixeltest.jpg")
+    # pixel_image_resized.save("pixeltest.jpg")
 
 
 def color_picker(palette_list, pixel):
