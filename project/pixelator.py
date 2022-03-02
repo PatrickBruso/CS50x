@@ -12,10 +12,8 @@ def main(file_location, palette_name):
     To do:
     Compare output file to output of code in place final project for same picture and palette
     This one seems to look considerably worse
-    Might need to recode without converting to numpy array
     Set resize to 2x instead of 4x, slower but might look better.
     Create version without using numpy arrays... (might be only option to maintain png)
-    see pset4 filter problem.  Maybe create pixelator function in C?
     """
 
     # Open palette choice
