@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Constant resize amount that will be used to shrink and expand image
-RESIZE = 4
+RESIZE = 3
 
 def main(file_location, palette_name):
 
@@ -14,10 +14,7 @@ def main(file_location, palette_name):
     """
     To do:
     Compare output file to output of code in place final project for same picture and palette
-    This one seems to look considerably worse
-    Set resize to 2x instead of 4x, slower but might look better.
-        Mess around with other resizing (5x, 10x, etc) to see how it looks
-    Create version without using numpy arrays... (might be only option to maintain png)
+    Create version without using numpy arrays... (might be only option to match SimpleImage program results)
     """
 
     # Open palette choice
