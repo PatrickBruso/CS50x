@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Constant resize amount that will be used to shrink and expand image
-
+RESIZE = 4
 
 def main(file_location, palette_name):
 
@@ -33,7 +33,7 @@ def main(file_location, palette_name):
     with Image.open(file_location) as image:
 
         # Resize image to 1/4 of original
-        image_resized = image.resize((image.width // 4, image.height // 4))
+        image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
 
         width, height = image_resized.size
 
@@ -68,7 +68,7 @@ def main(file_location, palette_name):
     pixel_image = Image.fromarray(pixel_image_array)
 
     # Resize new pixel image
-    pixel_image_resized = pixel_image.resize((width * 4, height * 4))
+    pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
 
     # Save new image
     pixel_image_resized.save("test.jpg")
