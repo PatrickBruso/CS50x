@@ -3,6 +3,9 @@ import time
 import numpy as np
 from PIL import Image
 
+# Constant resize amount that will be used to shrink and expand image
+
+
 def main(file_location, palette_name):
 
     """ Should I create a function for reading in an image location and returning a reshaped array of colors?
@@ -13,6 +16,7 @@ def main(file_location, palette_name):
     Compare output file to output of code in place final project for same picture and palette
     This one seems to look considerably worse
     Set resize to 2x instead of 4x, slower but might look better.
+        Mess around with other resizing (5x, 10x, etc) to see how it looks
     Create version without using numpy arrays... (might be only option to maintain png)
     """
 
@@ -21,16 +25,12 @@ def main(file_location, palette_name):
 
         # Create array of palette colors
         array = np.array(palette.convert('RGB'))
-        print(array)
 
     # Reshape array into usable list of colors
     palette_colors_list = array.reshape(-1, 3)
 
     # Open image choice
     with Image.open(file_location) as image:
-
-        # Array of larger sized image to see difference when not shrunken
-        array2 = np.array(image.convert('RGB'))
 
         # Resize image to 1/4 of original
         image_resized = image.resize((image.width // 4, image.height // 4))
@@ -41,7 +41,6 @@ def main(file_location, palette_name):
         resized_array = np.array(image_resized.convert('RGB'))
 
     # Reshape array into iterable list of colors
-    test_big = array2.reshape(-1, 3)
     image_colors_list = resized_array.reshape(-1, 3)
 
     # Create empty list for array of pixelized image's colors
@@ -72,7 +71,7 @@ def main(file_location, palette_name):
     pixel_image_resized = pixel_image.resize((width * 4, height * 4))
 
     # Save new image
-    pixel_image_resized.save("pixeltest_png.png")
+    pixel_image_resized.save("test.jpg")
 
 
 def color_picker(palette_list, pixel):
