@@ -3,6 +3,8 @@
 {% block body %}
 
     <h1>Load Image</h1>
+    <label for="file">Select a file:>/label>
+    <input type="file" id="file" name="file">
     <form action="/" method="post">
         <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
         {% for sport in sports %}
