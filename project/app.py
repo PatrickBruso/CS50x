@@ -2,10 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-PALETTES = []
-
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
+    if 
     return render_template("index.html", sports=SPORTS)
 
 
