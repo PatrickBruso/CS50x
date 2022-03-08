@@ -4,15 +4,14 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if 
-    return render_template("index.html", sports=SPORTS)
+    if request.method == "POST":
 
+        # TODO: Load image and call pixelator.py on image, returning the pixelated image
 
-@app.route("/register", methods=["POST"])
-def register():
-    # Validate submission
-    if not request.form.get("name") or request.form.get("sport") not in SPORTS:
-        return render_template("failure.html")
+        return render_template("index.html")
 
-    # Confirm registration
-    return render_template("success.html")
+    else:
+
+        # TODO
+
+        return render_template("index.html", birthdays=birthdays)
