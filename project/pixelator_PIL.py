@@ -17,10 +17,16 @@ def main(file_location, palette_name, save_location):
             # Resize image to specified fraction of original
             image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
 
+            # Set width and height variables for resized image for later use
             width, height = image_resized.size
 
-            # Create new blank target image
+            # Create new blank image
             pixel_image = Image.new('RGB', (width, height))
+
+            # Call color_picker function for each pixel in resized target image
+            for x in width:
+                for y in height:
+                    
 
             # Resize new pixel image
             pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
