@@ -3,11 +3,10 @@ import time
 import numpy as np
 from PIL import Image
 
-def main(file_location, palette_name):
+# Constant resize amount that will be used to shrink and expand image
+RESIZE = 3
 
-    """
-    This version does not use numpy arrays but only PIL for image manipulation
-    """
+def main(file_location, palette_name, save_location):
 
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
@@ -21,11 +20,16 @@ def main(file_location, palette_name):
     # Open image choice
     with Image.open(file_location) as image:
 
-        # Array of larger sized image to see difference when not shrunken
-        array2 = np.array(image.convert('RGB'))
+        # Resize image to 1/4 of original
+        image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
+
+        width, height = image_resized.size
+
+        # Create array of resized image
+        resized_array = np.array(image_resized.convert('RGB'))
 
     # Reshape array into iterable list of colors
-    image_colors_list = array2.reshape(-1, 3)
+    image_colors_list = resized_array.reshape(-1, 3)
 
     # Create empty list for array of pixelized image's colors
     pixel_image_array = np.empty_like(image_colors_list)
@@ -46,13 +50,16 @@ def main(file_location, palette_name):
         counter += 1
 
     # Reshape pixel_image_array to match the original array shape of the resized image
-    pixel_image_array = np.reshape(pixel_image_array, array2.shape)
+    pixel_image_array = np.reshape(pixel_image_array, resized_array.shape)
 
     # Create PIL image of pixelated array of colors
     pixel_image = Image.fromarray(pixel_image_array)
 
+    # Resize new pixel image
+    pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
+
     # Save new image
-    pixel_image.save("pixeltest.jpg")
+    pixel_image_resized.save(save_location)
 
 
 def color_picker(palette_list, pixel):
