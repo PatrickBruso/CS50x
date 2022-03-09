@@ -83,5 +83,5 @@ def color_picker(palette_list, pixel):
 
 if __name__ == "__main__":
     start_time = time.time()
-    main("static/images/landscape.jpg", "ammo8.png")
+    main("static/images/landscape.jpg", "ammo8.png", "test.jpg")
     print("------- %s seconds -------" % (time.time() - start_time))
