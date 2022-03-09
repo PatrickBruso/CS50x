@@ -11,6 +11,9 @@ def main(file_location, palette_name, save_location):
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
+        # Convert palette to RGB
+        rgb_palette = palette.convert('RGB')
+
         # Empty list for palette RGB values
         palette_list = []
         print(palette.height, palette.width)
@@ -18,7 +21,7 @@ def main(file_location, palette_name, save_location):
         # Grab palette RGB values and append to list
         for x in range(palette.height):
             for y in range(palette.width):
-                print(palette.getpixel((x, y)))
+                print(rgb_palette.getpixel((x, y)))
                 #print(pixel)
                 #palette_list.append(pixel)
 
