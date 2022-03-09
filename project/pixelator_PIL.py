@@ -24,9 +24,10 @@ def main(file_location, palette_name, save_location):
             pixel_image = Image.new('RGB', (width, height))
 
             # Call color_picker function for each pixel in resized target image
-            for x in width:
-                for y in height:
-                    
+            for x in range(width):
+                for y in range(height):
+                    pixel = color_picker(palette, image_resized.get_pixel(x, y))
+
 
             # Resize new pixel image
             pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
@@ -35,7 +36,7 @@ def main(file_location, palette_name, save_location):
             pixel_image_resized.save(save_location)
 
 
-def color_picker(palette_list, pixel):
+def color_picker(palette, pixel):
     """
     Take a pixel and a target palette of colors and find the color in the
     palette which is closet to the given pixel.  Return the palette color
@@ -43,7 +44,7 @@ def color_picker(palette_list, pixel):
     """
 
     # Grab RGB values for target pixel
-    r, g, b = int(pixel[0]), int(pixel[1]), int(pixel[2])
+    r, g, b = pixel.red, pixel.green, pixel.blue
 
     # Create empty list for distance values
     distance_list = []
