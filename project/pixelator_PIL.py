@@ -19,41 +19,13 @@ def main(file_location, palette_name, save_location):
 
             width, height = image_resized.size
 
-            # Create array of resized image
-            resized_array = np.array(image_resized.convert('RGB'))
+            
 
-        # Reshape array into iterable list of colors
-        image_colors_list = resized_array.reshape(-1, 3)
+            # Resize new pixel image
+            pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
 
-        # Create empty list for array of pixelized image's colors
-        pixel_image_array = np.empty_like(image_colors_list)
-
-        # Create counter for updating pixel_image_list array with new pixel
-        counter = 0
-
-        # Append to list each RGB value using color_picker function
-        for pixel in image_colors_list:
-
-            # obtain the new pixel value for that pixel and assign to new_pixel
-            new_pixel = color_picker(palette_colors_list, pixel)
-
-            # Use counter to update pixel_image_list with new pixel value
-            pixel_image_array[counter] = new_pixel
-
-            # increment counter for next value
-            counter += 1
-
-        # Reshape pixel_image_array to match the original array shape of the resized image
-        pixel_image_array = np.reshape(pixel_image_array, resized_array.shape)
-
-        # Create PIL image of pixelated array of colors
-        pixel_image = Image.fromarray(pixel_image_array)
-
-        # Resize new pixel image
-        pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
-
-        # Save new image
-        pixel_image_resized.save(save_location)
+            # Save new image
+            pixel_image_resized.save(save_location)
 
 
 def color_picker(palette_list, pixel):
