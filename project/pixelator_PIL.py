@@ -11,35 +11,43 @@ def main(file_location, palette_name, save_location):
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
+        # Empty list for palette RGB values
+        palette_list = []
+
         # Grab palette RGB values and append to list
-        
+        for x in range(palette.height):
+            for y in range(palette.width):
+                pixel = palette.get_pixel(x, y)
+                palette_list.append(pixel)
 
-        # Open image choice
-        with Image.open(file_location) as image:
+    print(palette_list)
 
-            # Resize image to specified fraction of original
-            image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
+    # Open image choice
+    with Image.open(file_location) as image:
 
-            # Set width and height variables for resized image for later use
-            width, height = image_resized.size
+        # Resize image to specified fraction of original
+        image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
 
-            # Create new blank image
-            pixel_image = Image.new('RGB', (width, height))
+        # Set width and height variables for resized image for later use
+        width, height = image_resized.size
 
-            # Call color_picker function for each pixel in resized target image
-            for x in range(width):
-                for y in range(height):
-                    pixel = color_picker(palette, image_resized.get_pixel(x, y))
+        # Create new blank image
+        pixel_image = Image.new('RGB', (width, height))
 
-
-            # Resize new pixel image
-            pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
-
-            # Save new image
-            pixel_image_resized.save(save_location)
+        # Call color_picker function for each pixel in resized target image
+        for x in range(width):
+            for y in range(height):
+                pixel = color_picker(palette, image_resized.get_pixel(x, y))
 
 
-def color_picker(palette, pixel):
+        # Resize new pixel image
+        pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
+
+        # Save new image
+        pixel_image_resized.save(save_location)
+
+
+def color_picker(palette_list, pixel):
     """
     Take a pixel and a target palette of colors and find the color in the
     palette which is closet to the given pixel.  Return the palette color
