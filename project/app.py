@@ -15,4 +15,4 @@ def index():
 
         # TODO
 
-        return render_template("index.html", birthdays=birthdays)
+        return render_template("index.html")
