@@ -13,6 +13,7 @@ def main(file_location, palette_name, save_location):
 
         # Empty list for palette RGB values
         palette_list = []
+        print(palette.height, palette.width)
 
         # Grab palette RGB values and append to list
         for x in range(palette.height):
