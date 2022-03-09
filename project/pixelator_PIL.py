@@ -20,7 +20,7 @@ def main(file_location, palette_name, save_location):
     # Open image choice
     with Image.open(file_location) as image:
 
-        # Resize image to 1/4 of original
+        # Resize image to specified fraction of original
         image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
 
         width, height = image_resized.size
