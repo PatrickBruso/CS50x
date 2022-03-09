@@ -11,6 +11,9 @@ def main(file_location, palette_name, save_location):
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
 
+        # Grab palette RGB values and append to list
+        
+
         # Open image choice
         with Image.open(file_location) as image:
 
