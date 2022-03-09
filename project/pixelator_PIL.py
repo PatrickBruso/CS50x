@@ -16,18 +16,13 @@ def main(file_location, palette_name, save_location):
 
     # Empty list for palette RGB values
     palette_list = []
-    print(palette.height, palette.width)
 
     # Grab palette RGB values and append to list
-    for x in range(palette.height):
-        for y in range(palette.width):
+    for x in range(rgb_palette.width):
+        for y in range(rgb_palette.height):
             pixel = rgb_palette.getpixel((x, y))
-            print(pixel)
             palette_list.append(pixel)
 
-    print(palette_list)
-
-    """
     # Open image choice
     with Image.open(file_location) as image:
 
@@ -43,7 +38,7 @@ def main(file_location, palette_name, save_location):
         # Call color_picker function for each pixel in resized target image
         for x in range(width):
             for y in range(height):
-                pixel = color_picker(palette, image_resized.get_pixel(x, y))
+                pixel = color_picker(palette_list, image_resized.getpixel((x, y)))
 
 
         # Resize new pixel image
@@ -51,7 +46,6 @@ def main(file_location, palette_name, save_location):
 
         # Save new image
         pixel_image_resized.save(save_location)
-    """
 
 
 def color_picker(palette_list, pixel):
