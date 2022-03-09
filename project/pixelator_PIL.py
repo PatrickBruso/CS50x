@@ -14,16 +14,16 @@ def main(file_location, palette_name, save_location):
         # Convert palette to RGB
         rgb_palette = palette.convert('RGB')
 
-        # Empty list for palette RGB values
-        palette_list = []
-        print(palette.height, palette.width)
+    # Empty list for palette RGB values
+    palette_list = []
+    print(palette.height, palette.width)
 
-        # Grab palette RGB values and append to list
-        for x in range(palette.height):
-            for y in range(palette.width):
-                print(rgb_palette.getpixel((x, y)))
-                #print(pixel)
-                #palette_list.append(pixel)
+    # Grab palette RGB values and append to list
+    for x in range(palette.height):
+        for y in range(palette.width):
+            print(rgb_palette.getpixel((x, y)))
+            #print(pixel)
+            #palette_list.append(pixel)
 
     #print(palette_list)
 
