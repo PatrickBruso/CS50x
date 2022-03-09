@@ -39,6 +39,7 @@ def main(file_location, palette_name, save_location):
         for x in range(width):
             for y in range(height):
                 pixel = color_picker(palette_list, image_resized.getpixel((x, y)))
+                print(pixel)
 
 
         # Resize new pixel image
@@ -56,6 +57,7 @@ def color_picker(palette_list, pixel):
     """
 
     # Grab RGB values for target pixel
+    print(pixel)
     r, g, b = pixel.red, pixel.green, pixel.blue
 
     # Create empty list for distance values
