@@ -22,6 +22,7 @@ def main(file_location, palette_name, save_location):
 
     print(palette_list)
 
+    """
     # Open image choice
     with Image.open(file_location) as image:
 
@@ -45,6 +46,7 @@ def main(file_location, palette_name, save_location):
 
         # Save new image
         pixel_image_resized.save(save_location)
+    """
 
 
 def color_picker(palette_list, pixel):
