@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Constant resize amount that will be used to shrink and expand image
-RESIZE = 4
+RESIZE = 3
 
 def main(file_location, palette_name, save_location):
 
@@ -17,7 +17,7 @@ def main(file_location, palette_name, save_location):
     # Empty list for palette RGB values
     palette_list = []
 
-    # Grab palette RGB values and append to list
+    # Grab palette RGB values and append to palette list
     for x in range(rgb_palette.width):
         for y in range(rgb_palette.height):
             pixel = rgb_palette.getpixel((x, y))
@@ -29,24 +29,24 @@ def main(file_location, palette_name, save_location):
         # Resize image to specified fraction of original
         image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
 
-        # Set width and height variables for resized image for later use
-        width, height = image_resized.size
+    # Set width and height variables for resized image for later use
+    width, height = image_resized.size
 
-        # Create new blank image
-        pixel_image = Image.new('RGB', (width, height))
+    # Create new blank image
+    pixel_image = Image.new('RGB', (width, height))
 
-        # Call color_picker function for each pixel in resized target image
-        for x in range(width):
-            for y in range(height):
-                pixel = color_picker(palette_list, image_resized.getpixel((x, y)))
-                pixel_image.putpixel((x, y), (pixel[0], pixel[1], pixel[2]))
+    # Call color_picker function for each pixel in resized target image
+    for x in range(width):
+        for y in range(height):
+            pixel = color_picker(palette_list, image_resized.getpixel((x, y)))
+            pixel_image.putpixel((x, y), (pixel[0], pixel[1], pixel[2]))
 
 
-        # Resize new pixel image
-        pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
+    # Resize new pixel image
+    pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
 
-        # Save new image
-        pixel_image_resized.save(save_location)
+    # Save new image
+    pixel_image_resized.save(save_location)
 
 
 def color_picker(palette_list, pixel):
@@ -83,5 +83,5 @@ def color_picker(palette_list, pixel):
 
 if __name__ == "__main__":
     start_time = time.time()
-    main("static/images/landscape.jpg", "ammo8.png", "test.jpg")
+    main("static/images/landscape.jpg", "ammo8.png", "test2.jpg")
     print("------- %s seconds -------" % (time.time() - start_time))
