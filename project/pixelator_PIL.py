@@ -25,8 +25,11 @@ def main(file_location, palette_name, save_location):
     # Open image choice
     with Image.open(file_location) as image:
 
+        image.show()
+
         # Resize image to specified fraction of original
         image_resized = image.resize((image.width // RESIZE, image.height // RESIZE))
+        image_resized.show()
 
     # Set width and height variables for resized image for later use
     width, height = image_resized.size
@@ -40,7 +43,7 @@ def main(file_location, palette_name, save_location):
             pixel = color_picker(palette_list, image_resized.getpixel((x, y)))
             pixel_image.putpixel((x, y), (pixel[0], pixel[1], pixel[2]))
 
-
+    pixel_image.show()
     # Resize new pixel image
     pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
 
