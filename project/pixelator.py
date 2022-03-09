@@ -1,21 +1,11 @@
 import math
-import time
 import numpy as np
 from PIL import Image
 
 # Constant resize amount that will be used to shrink and expand image
 RESIZE = 3
 
-def main(file_location, palette_name):
-
-    """ Should I create a function for reading in an image location and returning a reshaped array of colors?
-    Maybe not because I need to resize the image.  If so, I'll have to resize the image first before I obtain the array"""
-
-    """
-    To do:
-    Compare output file to output of code in place final project for same picture and palette
-    Create version without using numpy arrays... (might be only option to match SimpleImage program results)
-    """
+def main(file_location, palette_name, save_location):
 
     # Open palette choice
     with Image.open(f'static/palettes/{palette_name}') as palette:
@@ -68,7 +58,7 @@ def main(file_location, palette_name):
     pixel_image_resized = pixel_image.resize((width * RESIZE, height * RESIZE))
 
     # Save new image
-    pixel_image_resized.save("test.jpg")
+    pixel_image_resized.save(save_location)
 
 
 def color_picker(palette_list, pixel):
@@ -104,6 +94,5 @@ def color_picker(palette_list, pixel):
 
 
 if __name__ == "__main__":
-    start_time = time.time()
-    main("static/images/landscape.jpg", "pollen8.png")
-    print("------- %s seconds -------" % (time.time() - start_time))
+    main("static/images/landscape.jpg", "ammo8.png", "test.jpg")
+    print("successfully saved")
