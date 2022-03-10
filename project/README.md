@@ -55,4 +55,7 @@ This allows the user to look at multiple palette choices without having to re-ru
 library to add a class structure to image files, which allows for easier access to RGB values.  I used
 this library to help pull RGB values from my image and from the palettes</p>
 
-<p>The last file is the 
+<p>The last file is the pixel_image_creator.py file which does the work of pixelating the image.
+ This file takes in an image and a palette of colors, and then applys the palette of colors to the image,
+ using a simple equation to determine which image in the palettes is "closest" to the target pixel. The
+ program then returns the new, pixelated image so that it can be loaded into the GUI.</p>
