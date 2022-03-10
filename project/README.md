@@ -59,3 +59,5 @@ this library to help pull RGB values from my image and from the palettes</p>
  This file takes in an image and a palette of colors, and then applys the palette of colors to the image,
  using a simple equation to determine which image in the palettes is "closest" to the target pixel. The
  program then returns the new, pixelated image so that it can be loaded into the GUI.</p>
+
+ <p>A link to the project video can be found [here](https://youtu.be/veLnSclz_uw)</p>
