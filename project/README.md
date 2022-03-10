@@ -51,4 +51,8 @@ more user-friendly to create a GUI than to have the user pass through commands u
 <p>The GUI handles picking an image from disk, loading the image, viewing the palettes, and pixelating the image.
 This allows the user to look at multiple palette choices without having to re-run the program.</p>
 
-<p>The 
+<p>The simpleimage.py file is the simpleimage library created by Stanford.  This file uses the PIL
+library to add a class structure to image files, which allows for easier access to RGB values.  I used
+this library to help pull RGB values from my image and from the palettes</p>
+
+<p>The last file is the 
