@@ -42,3 +42,13 @@ to the loaded image and then will show the pixelated copy of that image.</p>
 that using the resize method available in PIL did not create as clear an image, so instead I
 created functions that can shrink or enlarge an image.  Additionally, I used the Stanford SimpleImage
 library which applies a nice class based structure to PIL images for easier access to RGB values.</p>
+
+#### File Structure
+<p>My program has mutiple python files.  The simple-guy.py file is the GUI/user interface.  This file
+is written using the PySimpleGUI library and creates the program for the user.  I found that it was
+more user-friendly to create a GUI than to have the user pass through commands using the command line.</p>
+
+<p>The GUI handles picking an image from disk, loading the image, viewing the palettes, and pixelating the image.
+This allows the user to look at multiple palette choices without having to re-run the program.</p>
+
+<p>The 
